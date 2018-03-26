@@ -7,13 +7,14 @@ public:
 	Gamemanager();
 	~Gamemanager();
 
-	void createThread();
+	void startThread();
 	void endThread();
+	bool threadUpdate();
+
+
+protected:
 
 	std::thread mythread;
-
-	
-
-
+	void 
 };
 
