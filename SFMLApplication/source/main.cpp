@@ -1,4 +1,6 @@
 #include <SFML\Graphics.hpp>
+#include <Gamemanager.h>
+
 
 //welcome to my shitty OSU ripoff
 

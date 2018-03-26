@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SFMLApplication", "SFMLApplication\SFMLApplication.vcxproj", "{C9FC84FF-8B80-43D5-B351-0175F00903B3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A192A7AE-C050-4AD9-9739-8783D0E735A7} = {A192A7AE-C050-4AD9-9739-8783D0E735A7}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RhythmLib", "Project1\Project1.vcxproj", "{A192A7AE-C050-4AD9-9739-8783D0E735A7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RhythmLib", "RhythmLib\RhythmLib.vcxproj", "{A192A7AE-C050-4AD9-9739-8783D0E735A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

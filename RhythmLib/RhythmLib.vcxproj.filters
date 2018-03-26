@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\SFMLApplication\Gamemanager.cpp">
+    <ClCompile Include="Source\Gamemanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SFMLApplication\SoundManager.cpp">
+    <ClCompile Include="Source\SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SFMLApplication\Gamemanager.h">
+    <ClInclude Include="Source\Gamemanager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SFMLApplication\SoundManager.h">
+    <ClInclude Include="Source\SoundManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
