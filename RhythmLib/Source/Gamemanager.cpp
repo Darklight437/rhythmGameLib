@@ -4,7 +4,7 @@
 
 Gamemanager::Gamemanager()
 {
-
+	SoundM.startup();
 }
 
 

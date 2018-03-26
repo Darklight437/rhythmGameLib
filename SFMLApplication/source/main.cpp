@@ -27,6 +27,11 @@ int main(int argc, char* argv[])
 				window.close();
 			}
 
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+			{
+
+			}
+
 			window.clear();
 			window.draw(shape);
 			window.display();

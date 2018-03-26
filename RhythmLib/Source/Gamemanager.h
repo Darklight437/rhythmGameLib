@@ -1,6 +1,9 @@
 #pragma once
 #include <thread>
 #include <iostream>
+#include "SoundManager.h"
+
+
 class Gamemanager
 {
 public:
@@ -13,7 +16,7 @@ public:
 
 
 protected:
-
+	SoundManager SoundM;
 	std::thread mythread;
 	
 };
