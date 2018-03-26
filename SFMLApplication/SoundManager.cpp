@@ -51,7 +51,7 @@ bool SoundManager::loadSound(const char* soundfile)
 bool SoundManager::Playsound(FMOD::Sound *sound)
 {
 	FMOD_RESULT result = System_Create(&m_pfmodSystem);
-
+	Channel* pChannel;
 	result = m_pfmodSystem->playSound(sound, 0, false, &pChannel);
 
 	return false;

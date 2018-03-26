@@ -12,7 +12,8 @@ public:
 	
 	
 	bool startup();
-		bool loadSound(const char* soundfile);
+	
+	bool loadSound(const char* soundfile);
 	bool Playsound(FMOD::Sound* sound);
 	System* Getsystem();
 
