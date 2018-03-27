@@ -97,7 +97,7 @@
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\32\;%(AdditionalLibraryDirectories);$(SolutionDir)\FMOD</AdditionalLibraryDirectories>
       <AdditionalDependencies>RhythmLib_DEBUG.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;sfml-network-s-d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -111,7 +111,7 @@
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\64\;%(AdditionalLibraryDirectories) ; $(SolutionDir)\FMOD</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\64\;%(AdditionalLibraryDirectories) ; $(SolutionDir)\FMOD;$(SolutionDir)\FMOD</AdditionalLibraryDirectories>
       <AdditionalDependencies>RhythmLib_DEBUG.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;sfml-network-s-d.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -129,7 +129,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\32\;%(AdditionalLibraryDirectories);$(SolutionDir)\FMOD</AdditionalLibraryDirectories>
       <AdditionalDependencies>RhythmLib.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;sfml-network-s.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -147,7 +147,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\RhythmLib\bin\;$(SolutionDir)\lib\64\;%(AdditionalLibraryDirectories);$(SolutionDir)\FMOD</AdditionalLibraryDirectories>
       <AdditionalDependencies>RhythmLib.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;sfml-network-s.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

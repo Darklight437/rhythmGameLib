@@ -29,7 +29,13 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
+				shape.setFillColor(sf::Color::Blue);
 
+			}
+
+			if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Space)
+			{
+				shape.setFillColor(sf::Color::Green);
 			}
 
 			window.clear();

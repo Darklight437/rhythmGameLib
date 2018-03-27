@@ -1,6 +1,7 @@
 #pragma once
 #include <thread>
 #include <iostream>
+#include <string>
 #include "SoundManager.h"
 
 
@@ -11,8 +12,10 @@ public:
 	~Gamemanager();
 
 	void startThread() {};
-	void endThread() {};
+	void endThread();
 	bool threadUpdate() { return false; };
+	void dootTest();
+	std::string getExePath();
 
 
 protected:

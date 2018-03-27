@@ -4,6 +4,7 @@
 
 SoundManager::SoundManager()
 {
+	loadSound("audio/powerup.wav");
 }
 
 
