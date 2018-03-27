@@ -4,7 +4,7 @@
 
 Gamemanager::Gamemanager()
 {
-	SoundM.startup();
+	m_SoundM.startup();
 }
 
 
@@ -19,7 +19,7 @@ void Gamemanager::endThread()
 
 void Gamemanager::dootTest()
 {
-	
+	m_SoundM.Playsound(m_SoundM.m_soundfiles[0]);
 }
 
 std::string Gamemanager::getExePath()
@@ -34,4 +34,9 @@ std::string Gamemanager::getExePath()
 	}
 
 	return buffer;
+}
+
+void Gamemanager::update()
+{
+	m_SoundM.soundUpdate();
 }

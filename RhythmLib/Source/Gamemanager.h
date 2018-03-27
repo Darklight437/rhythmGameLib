@@ -16,10 +16,10 @@ public:
 	bool threadUpdate() { return false; };
 	void dootTest();
 	std::string getExePath();
-
+	void update();
 
 protected:
-	SoundManager SoundM;
+	SoundManager m_SoundM;
 	std::thread mythread;
 	
 };

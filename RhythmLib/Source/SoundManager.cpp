@@ -1,10 +1,11 @@
 #include "SoundManager.h"
-#include "fmod_errors.h"
+#include <fmod_errors.h>
+
 #include <iostream>
 
 SoundManager::SoundManager()
 {
-	loadSound("audio/powerup.wav");
+	
 }
 
 
@@ -32,18 +33,22 @@ bool SoundManager::startup()
 		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
 	}
 
-
+	loadSound("audio/powerup.wav");
 
 	return true;
 }
 
 bool SoundManager::loadSound(const char* soundfile)
 {
-	FMOD_RESULT result = System_Create(&m_pfmodSystem);
-	Sound* pSound;
 	
-	result = m_pfmodSystem->createSound(soundfile, FMOD_DEFAULT, 0, &pSound);
+	Sound* pSound = nullptr;
+	
+	FMOD_RESULT result = m_pfmodSystem->createSound(soundfile, FMOD_DEFAULT, 0, &pSound);
 
+	if (result != FMOD_OK)
+	{
+		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
+	}
 
 	m_soundfiles.push_back(pSound);
 	return true;
@@ -51,9 +56,9 @@ bool SoundManager::loadSound(const char* soundfile)
 
 bool SoundManager::Playsound(FMOD::Sound *sound)
 {
-	FMOD_RESULT result = System_Create(&m_pfmodSystem);
+	
 	Channel* pChannel;
-	result = m_pfmodSystem->playSound(sound, 0, false, &pChannel);
+	FMOD_RESULT result = m_pfmodSystem->playSound(sound, 0, false, &pChannel);
 
 	return false;
 }
@@ -61,4 +66,9 @@ bool SoundManager::Playsound(FMOD::Sound *sound)
 System * SoundManager::Getsystem()
 {
 	return nullptr;
+}
+
+void SoundManager::soundUpdate()
+{
+	m_pfmodSystem->update();
 }

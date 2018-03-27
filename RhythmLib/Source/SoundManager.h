@@ -1,5 +1,6 @@
 #pragma once
 #include <fmod.hpp>
+
 #include <vector>
 using namespace FMOD;
 
@@ -16,7 +17,7 @@ public:
 	bool loadSound(const char* soundfile);
 	bool Playsound(FMOD::Sound* sound);
 	System* Getsystem();
-
+	void soundUpdate();
 
 	bool started = false;
 	std::vector<Sound*> m_soundfiles;

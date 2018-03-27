@@ -6,6 +6,7 @@
 
 int main(int argc, char* argv[])
 {
+	Gamemanager GM;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
 	sf::CircleShape shape(100.0f);
 	shape.setOrigin(100, 100);
@@ -30,6 +31,7 @@ int main(int argc, char* argv[])
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
 				shape.setFillColor(sf::Color::Blue);
+				GM.dootTest();
 
 			}
 
@@ -41,6 +43,7 @@ int main(int argc, char* argv[])
 			window.clear();
 			window.draw(shape);
 			window.display();
+			GM.update();
 		}
 	}
 
