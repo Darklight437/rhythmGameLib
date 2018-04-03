@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 			GM.update();
 		}
 
-		GM.testClock();
+		
 	}
 
 	return 0;

@@ -21,7 +21,7 @@ x64/
 x86/
 bld/
 [Bb]in/
-*/[Bb]uild/
+[Bb]uild/
 [Ll]og/
 *.tlog
 
@@ -298,3 +298,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+*.tlog
+*.tlog
