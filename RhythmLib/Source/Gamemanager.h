@@ -17,6 +17,7 @@ public:
 	void dootTest();
 	std::string getExePath();
 	void update();
+	void comparator();
 	bool writeInput();
 	bool readMusic();
 

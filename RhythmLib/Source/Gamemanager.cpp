@@ -41,9 +41,3 @@ void Gamemanager::update()
 	m_SoundM.soundUpdate();
 }
 
-bool Gamemanager::writeInput()
-{
-
-
-	return false;
-}

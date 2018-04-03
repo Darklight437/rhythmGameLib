@@ -34,5 +34,10 @@ void GameClock::update()
 	m_lastTime = m_timer.now();
 }
 
+float GameClock::getDeltaTime()
+{
+	return deltaTime;
+}
+
 
 
