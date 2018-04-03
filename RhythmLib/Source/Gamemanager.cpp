@@ -1,4 +1,5 @@
 #include "Gamemanager.h"
+#include <iostream>
 #include <Windows.h>
 
 
@@ -39,5 +40,12 @@ std::string Gamemanager::getExePath()
 void Gamemanager::update()
 {
 	m_SoundM.soundUpdate();
+}
+
+void Gamemanager::testClock()
+{
+	
+
+	std::cout << Clock.getTimeSeconds() << "\n";
 }
 

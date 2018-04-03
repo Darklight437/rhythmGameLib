@@ -17,7 +17,10 @@
     <ClCompile Include="Source\SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameClock.cpp">
+    <ClCompile Include="Source\BeatMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameClock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -28,7 +31,10 @@
     <ClInclude Include="Source\SoundManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameClock.h">
+    <ClInclude Include="Source\BeatMap.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameClock.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

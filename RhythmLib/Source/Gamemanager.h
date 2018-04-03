@@ -1,8 +1,8 @@
 #pragma once
 #include <thread>
-#include <iostream>
 #include <string>
 #include "SoundManager.h"
+#include"GameClock.h"
 
 
 class Gamemanager
@@ -17,14 +17,15 @@ public:
 	void dootTest();
 	std::string getExePath();
 	void update();
-	void comparator();
-	bool writeInput();
-	bool readMusic();
+	void comparator() {}
+	bool writeInput() {}
+	bool readMusic() {}
+	void testClock();
 
 
 protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
-	
+	GameClock Clock;
 };
 
