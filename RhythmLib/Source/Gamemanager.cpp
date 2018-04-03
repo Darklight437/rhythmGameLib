@@ -11,6 +11,7 @@ Gamemanager::Gamemanager()
 
 Gamemanager::~Gamemanager()
 {
+	
 }
 
 void Gamemanager::endThread()

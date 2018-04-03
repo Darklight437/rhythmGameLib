@@ -3,7 +3,7 @@
 #include <string>
 #include "SoundManager.h"
 #include"GameClock.h"
-
+#include "BeatMap.h"
 
 class Gamemanager
 {
@@ -13,7 +13,7 @@ public:
 
 	void startThread() {};
 	void endThread();
-	bool threadUpdate() { return false; };
+	
 	void dootTest();
 	std::string getExePath();
 	void update();
@@ -27,5 +27,6 @@ protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
 	GameClock Clock;
+	BeatMap currentSong;
 };
 
