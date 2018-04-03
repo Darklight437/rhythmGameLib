@@ -17,6 +17,9 @@ public:
 	void dootTest();
 	std::string getExePath();
 	void update();
+	bool writeInput();
+	bool readMusic();
+
 
 protected:
 	SoundManager m_SoundM;

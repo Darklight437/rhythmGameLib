@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameClock.cpp" />
     <ClCompile Include="Source\Gamemanager.cpp" />
     <ClCompile Include="Source\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameClock.h" />
     <ClInclude Include="Source\Gamemanager.h" />
     <ClInclude Include="Source\SoundManager.h" />
   </ItemGroup>
