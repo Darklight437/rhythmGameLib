@@ -12,7 +12,7 @@ public:
 	map getTimeEvents();
 
 
-	private:
+
 
 	struct map
 	{
