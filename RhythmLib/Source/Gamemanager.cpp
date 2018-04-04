@@ -50,10 +50,22 @@ void Gamemanager::update()
 	m_SoundM.soundUpdate();
 }
 
-void Gamemanager::testClock()
+void Gamemanager::debugClock()
 {
 	
 
 	std::cout << Clock.getTimeSeconds() << "\n";
+}
+
+bool Gamemanager::songPlaying()
+{
+	if (m_SoundM.soundPlaying(m_SoundM.m_currSong))
+	{
+		return true;
+	}
+	
+
+	return false;
+	
 }
 

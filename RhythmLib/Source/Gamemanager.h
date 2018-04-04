@@ -21,8 +21,11 @@ public:
 	void comparator() {}
 	bool writeInput() {}
 	bool readMusic() {}
-	void testClock();
-	bool songPlaying = false;
+	void debugClock();
+
+
+
+	bool songPlaying();
 
 protected:
 	SoundManager m_SoundM;

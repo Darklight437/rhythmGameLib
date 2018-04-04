@@ -17,10 +17,10 @@ int main(int argc, char* argv[])
 	{
 		sf::Event event;
 
-		if (!GM.songPlaying)
+		if (GM.songPlaying() == false)
 		{
 			GM.playCurrSong();
-			GM.songPlaying = true;
+			
 		}
 
 		while (window.pollEvent(event))

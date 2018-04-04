@@ -92,8 +92,37 @@ void SoundManager::soundUpdate()
 
 bool SoundManager::soundPlaying(Sound * soundTest)
 {
+	//el debuggo
+	//return false;
+
+	bool* Isplaying = new bool;
 	
+	*Isplaying = false;
 
+	for (int i = 0; i < 256; i++)
+	{
+		FMOD::Channel* channel;
 
+		m_pfmodSystem->getChannel(i, &channel);
+
+		Sound* sound;
+		channel->getCurrentSound(&sound);
+
+		if (sound == soundTest)
+		{
+			channel->isPlaying(Isplaying);
+			if (*Isplaying == true)
+			{
+				delete Isplaying;
+				std::cout << "song is playing \n";
+				return true;
+				
+				
+			}
+			
+		}
+		
+	}
+	delete Isplaying;
 	return false;
 }
