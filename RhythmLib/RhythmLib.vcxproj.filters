@@ -37,7 +37,7 @@
     <ClInclude Include="Source\GameClock.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="BeatEvent.h">
+    <ClInclude Include="Source\BeatEvent.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

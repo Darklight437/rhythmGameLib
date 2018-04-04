@@ -1,7 +1,7 @@
 #pragma once
 #include "GameClock.h"
 #include <vector>
-
+#include "BeatEvent.h"
 
 class BeatMap
 {
@@ -16,7 +16,7 @@ public:
 
 	struct map
 	{
-		std::vector<int64_t> timeEvent;
+		std::vector<eventpoint> beatEvents;
 	}songTest;
 	
 };
