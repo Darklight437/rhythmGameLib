@@ -9,14 +9,16 @@ public:
 	struct map;
 	BeatMap();
 	~BeatMap();
-	map getTimeEvents(int i);
+	map getTimeEvents();
 
 
 	private:
 
 	struct map
 	{
+
 		std::vector<eventpoint> beatEvents;
+
 	}songTest;
 	
 };

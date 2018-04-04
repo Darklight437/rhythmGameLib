@@ -8,7 +8,7 @@ BeatMap::~BeatMap()
 {
 }
 
-map BeatMap::getTimeEvents(int i)
+BeatMap::map BeatMap::getTimeEvents()
 {
-	return map();
+	return songTest;
 }

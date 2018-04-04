@@ -33,7 +33,7 @@ bool SoundManager::startup()
 		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
 	}
 
-	loadSound("audio/powerup.wav");
+	loadSound("audio/Snails House-Hot Milk.mp3");
 
 	return true;
 }

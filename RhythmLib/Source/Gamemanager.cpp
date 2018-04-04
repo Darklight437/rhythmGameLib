@@ -24,6 +24,8 @@ void Gamemanager::dootTest()
 	m_SoundM.Playsound(m_SoundM.m_soundfiles[0]);
 }
 
+
+
 std::string Gamemanager::getExePath()
 {
 	char buffer[MAX_PATH];
