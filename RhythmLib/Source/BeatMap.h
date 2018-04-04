@@ -6,19 +6,18 @@
 class BeatMap
 {
 public:
-	struct map;
+	
 	BeatMap();
 	~BeatMap();
-	map getTimeEvents();
+	std::vector<eventpoint> getTimeEvents();
 
 
 
 
-	struct map
-	{
+	
+private:
 
-		std::vector<eventpoint> beatEvents;
+	std::vector<eventpoint> beatEvents;
 
-	}songTest;
 	
 };

@@ -4,6 +4,7 @@
 #include "SoundManager.h"
 #include"GameClock.h"
 #include "BeatMap.h"
+#include "BeatEvent.h"
 
 class Gamemanager
 {
@@ -22,7 +23,7 @@ public:
 	bool writeInput() {}
 	bool readMusic() {}
 	void debugClock();
-
+	void recordEvent();
 
 
 	bool songPlaying();
@@ -31,6 +32,6 @@ protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
 	GameClock Clock;
-	BeatMap currentSong;
+	BeatMap m_currentSong;
 };
 

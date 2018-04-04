@@ -57,6 +57,12 @@ void Gamemanager::debugClock()
 	std::cout << Clock.getTimeSeconds() << "\n";
 }
 
+void Gamemanager::recordEvent()
+{
+	m_currentSong
+
+}
+
 bool Gamemanager::songPlaying()
 {
 	if (m_SoundM.soundPlaying(m_SoundM.m_currSong))
