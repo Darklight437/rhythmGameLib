@@ -15,13 +15,14 @@ public:
 	void endThread();
 	
 	void dootTest();
+	void playCurrSong();
 	std::string getExePath();
 	void update();
 	void comparator() {}
 	bool writeInput() {}
 	bool readMusic() {}
 	void testClock();
-
+	bool songPlaying = false;
 
 protected:
 	SoundManager m_SoundM;

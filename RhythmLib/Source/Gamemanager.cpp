@@ -21,7 +21,12 @@ void Gamemanager::endThread()
 
 void Gamemanager::dootTest()
 {
-	m_SoundM.Playsound(m_SoundM.m_soundfiles[0]);
+	m_SoundM.Playsound(m_SoundM.m_FXfiles[0]);
+}
+
+void Gamemanager::playCurrSong()
+{
+	m_SoundM.Playsound(m_SoundM.m_currSong);
 }
 
 

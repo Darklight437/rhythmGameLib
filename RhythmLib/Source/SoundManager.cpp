@@ -33,7 +33,8 @@ bool SoundManager::startup()
 		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
 	}
 
-	loadSound("audio/Snails House-Hot Milk.mp3");
+	loadSong("audio/Dieseldotogg.wav");
+	loadSound("audio/gunshot.ogg");
 
 	return true;
 }
@@ -50,7 +51,23 @@ bool SoundManager::loadSound(const char* soundfile)
 		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
 	}
 
-	m_soundfiles.push_back(pSound);
+	m_FXfiles.push_back(pSound);
+	return true;
+}
+
+bool SoundManager::loadSong(const char * soundfile)
+{
+
+	Sound* pSound = nullptr;
+
+	FMOD_RESULT result = m_pfmodSystem->createSound(soundfile, FMOD_DEFAULT, 0, &pSound);
+
+	if (result != FMOD_OK)
+	{
+		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
+	}
+
+	m_currSong= pSound;
 	return true;
 }
 
@@ -71,4 +88,12 @@ System * SoundManager::Getsystem()
 void SoundManager::soundUpdate()
 {
 	m_pfmodSystem->update();
+}
+
+bool SoundManager::soundPlaying(Sound * soundTest)
+{
+	
+
+
+	return false;
 }

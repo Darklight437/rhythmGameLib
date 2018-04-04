@@ -15,12 +15,16 @@ public:
 	bool startup();
 	
 	bool loadSound(const char* soundfile);
+	bool loadSong(const char* soundfile);
 	bool Playsound(FMOD::Sound* sound);
 	System* Getsystem();
 	void soundUpdate();
+	bool soundPlaying(Sound* soundTest);
+
 
 	bool started = false;
-	std::vector<Sound*> m_soundfiles;
+	Sound* m_currSong;
+	std::vector<Sound*> m_FXfiles;
 
 };
 
