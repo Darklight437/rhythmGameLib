@@ -1,20 +1,14 @@
 #include "BeatMap.h"
 
-
-
 BeatMap::BeatMap()
 {
 }
-
 
 BeatMap::~BeatMap()
 {
 }
 
-BeatMap::map BeatMap::getTimeEvents(int i)
+map BeatMap::getTimeEvents(int i)
 {
-	return songTest;
+	return map();
 }
-
-
-

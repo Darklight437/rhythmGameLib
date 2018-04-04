@@ -25,6 +25,7 @@
     <ClCompile Include="Source\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BeatEvent.h" />
     <ClInclude Include="Source\BeatMap.h" />
     <ClInclude Include="Source\GameClock.h" />
     <ClInclude Include="Source\Gamemanager.h" />

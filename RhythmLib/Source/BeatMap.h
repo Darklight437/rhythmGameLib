@@ -12,11 +12,11 @@ public:
 	map getTimeEvents(int i);
 
 
-private:
+	private:
 
 	struct map
 	{
 		std::vector<int64_t> timeEvent;
-	}	songTest;
+	}songTest;
 	
 };
