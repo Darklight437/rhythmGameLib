@@ -1,37 +1,37 @@
-#include "Gamemanager.h"
+#include "Toolmanager.h"
 #include <iostream>
 #include <Windows.h>
 
 
-Gamemanager::Gamemanager()
+Toolmanager::Toolmanager()
 {
 	m_SoundM.startup();
 }
 
 
-Gamemanager::~Gamemanager()
+Toolmanager::~Toolmanager()
 {
 	
 }
 
-void Gamemanager::endThread()
+void Toolmanager::endThread()
 {
 	mythread.join();
 }
 
-void Gamemanager::dootTest()
+void Toolmanager::dootTest()
 {
 	m_SoundM.Playsound(m_SoundM.m_FXfiles[0]);
 }
 
-void Gamemanager::playCurrSong()
+void Toolmanager::playCurrSong()
 {
 	m_SoundM.Playsound(m_SoundM.m_currSong);
 }
 
 
 
-std::string Gamemanager::getExePath()
+std::string Toolmanager::getExePath()
 {
 	char buffer[MAX_PATH];
 	GetModuleFileName(NULL, buffer, MAX_PATH);
@@ -45,25 +45,26 @@ std::string Gamemanager::getExePath()
 	return buffer;
 }
 
-void Gamemanager::update()
+void Toolmanager::update()
 {
 	m_SoundM.soundUpdate();
+	
 }
 
-void Gamemanager::debugClock()
+void Toolmanager::debugClock()
 {
 	
 
-	std::cout << Clock.getTimeSeconds() << "\n";
+	std::cout << m_Clock.getTimeSeconds() << "\n";
 }
 
-void Gamemanager::recordEvent()
+void Toolmanager::recordEvent()
 {
-	m_currentSong
+	//m_currentSong
 
 }
 
-bool Gamemanager::songPlaying()
+bool Toolmanager::songPlaying()
 {
 	if (m_SoundM.soundPlaying(m_SoundM.m_currSong))
 	{

@@ -8,7 +8,17 @@ BeatMap::~BeatMap()
 {
 }
 
-BeatMap::map BeatMap::getTimeEvents()
+std::vector<eventpoint> BeatMap::getTimeEvents()
 {
-	return songTest;
+	return std::vector<eventpoint>();
 }
+
+void BeatMap::recordEvent()
+{
+	eventpoint beat;
+	beat.timeEvent = 
+
+		beatEvents.push_back(beat);
+}
+
+

@@ -21,14 +21,14 @@
   <ItemGroup>
     <ClCompile Include="Source\BeatMap.cpp" />
     <ClCompile Include="Source\GameClock.cpp" />
-    <ClCompile Include="Source\Gamemanager.cpp" />
+    <ClCompile Include="Source\Toolmanager.cpp" />
     <ClCompile Include="Source\SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\BeatEvent.h" />
     <ClInclude Include="Source\BeatMap.h" />
     <ClInclude Include="Source\GameClock.h" />
-    <ClInclude Include="Source\Gamemanager.h" />
+    <ClInclude Include="Source\Toolmanager.h" />
     <ClInclude Include="Source\SoundManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

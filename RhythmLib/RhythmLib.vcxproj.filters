@@ -11,9 +11,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Gamemanager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -23,11 +20,11 @@
     <ClCompile Include="Source\BeatMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Toolmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Gamemanager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SoundManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -38,6 +35,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\BeatEvent.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Toolmanager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

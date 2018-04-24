@@ -6,11 +6,11 @@
 #include "BeatMap.h"
 #include "BeatEvent.h"
 
-class Gamemanager
+class Toolmanager
 {
 public:
-	Gamemanager();
-	~Gamemanager();
+	Toolmanager();
+	~Toolmanager();
 
 	void startThread() {};
 	void endThread();
@@ -31,7 +31,7 @@ public:
 protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
-	GameClock Clock;
+	GameClock m_Clock;
 	BeatMap m_currentSong;
 };
 

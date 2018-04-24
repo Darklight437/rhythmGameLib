@@ -11,12 +11,14 @@ SoundManager::SoundManager()
 
 SoundManager::~SoundManager()
 {
+
 }
 
 bool SoundManager::startup()
 {
-	FMOD_RESULT result = System_Create(&m_pfmodSystem);
 	//create main system object
+	FMOD_RESULT result = System_Create(&m_pfmodSystem);
+	
 	
 	//failed to create the system object
 	if (result != FMOD_OK)
@@ -54,7 +56,7 @@ bool SoundManager::loadSound(const char* soundfile)
 	m_FXfiles.push_back(pSound);
 	return true;
 }
-
+//loads single sound file to play as a backing song
 bool SoundManager::loadSong(const char * soundfile)
 {
 
@@ -90,10 +92,11 @@ void SoundManager::soundUpdate()
 	m_pfmodSystem->update();
 }
 
+//takes a sound to test if it is playing
 bool SoundManager::soundPlaying(Sound * soundTest)
 {
-	//el debuggo
-	//return false;
+	
+	
 
 	bool* Isplaying = new bool;
 	
@@ -117,11 +120,8 @@ bool SoundManager::soundPlaying(Sound * soundTest)
 				std::cout << "song is playing \n";
 				return true;
 				
-				
 			}
-			
 		}
-		
 	}
 	delete Isplaying;
 	return false;
