@@ -1,12 +1,12 @@
 #include <SFML\Graphics.hpp>
-#include <Gamemanager.h>
+#include <Toolmanager.h>
 
 
 //welcome to my shitty OSU ripoff
 
 int main(int argc, char* argv[])
 {
-	Gamemanager GM;
+	Toolmanager RM;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
 	sf::CircleShape shape(100.0f);
 	shape.setOrigin(100, 100);
@@ -17,9 +17,9 @@ int main(int argc, char* argv[])
 	{
 		sf::Event event;
 
-		if (GM.songPlaying() == false)
+		if (RM.songPlaying() == false)
 		{
-			GM.playCurrSong();
+			RM.playCurrSong();
 			
 		}
 
@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
 				shape.setFillColor(sf::Color::Blue);
-				GM.dootTest();
+				RM.dootTest();
 
 			}
 
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 			window.clear();
 			window.draw(shape);
 			window.display();
-			GM.update();
+			RM.update();
 		}
 
 		
