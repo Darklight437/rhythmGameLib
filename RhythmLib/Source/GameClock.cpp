@@ -9,9 +9,7 @@ GameClock::GameClock()
 }
 
 
-GameClock::~GameClock()
-{
-}
+
 
 int64_t GameClock::getTimeSeconds()
 {
@@ -37,6 +35,20 @@ void GameClock::update()
 float GameClock::getDeltaTime()
 {
 	return deltaTime;
+}
+
+GameClock * GameClock::getInstance()
+{
+	if (! instanceflag)
+	{
+		clock = new GameClock();
+		instanceflag = true;
+		return clock;
+	}
+	else
+	{
+		return clock;
+	}
 }
 
 

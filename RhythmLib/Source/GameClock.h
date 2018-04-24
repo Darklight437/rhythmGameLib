@@ -2,12 +2,17 @@
 #include <chrono>
 
 //class basically copied from andrew https://github.com/andrewthenintendrone
+//edited to be a singleton
 class GameClock
 {
 public:
-	GameClock();
-	~GameClock();
+	
+	~GameClock()
+	{
+		instanceflag = false;
+	}
 
+	
 	int64_t getTimeSeconds();
 	int64_t getTimeMilliseconds();
 	int64_t getTimeMicroseconds();
@@ -15,9 +20,13 @@ public:
 	void update();
 
 	float getDeltaTime();
+	static GameClock* getInstance();
 
 private:
 
+	static bool instanceflag;
+	static GameClock* clock;
+	GameClock();
 	std::chrono::high_resolution_clock m_timer;
 
 	//the time that this clock was created at
