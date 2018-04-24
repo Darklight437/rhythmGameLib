@@ -16,7 +16,7 @@ std::vector<eventpoint> BeatMap::getTimeEvents()
 void BeatMap::recordEvent()
 {
 	eventpoint beat;
-	beat.timeEvent = 
+	//beat.timeEvent = (needs int64 from clock) 
 
 		beatEvents.push_back(beat);
 }
