@@ -3,30 +3,31 @@
 
 //class basically copied from andrew https://github.com/andrewthenintendrone
 //edited to be a singleton
+//returns time in various increments
 class GameClock
 {
 public:
-	
-	~GameClock()
-	{
-		instanceflag = false;
-	}
-
 	
 	int64_t getTimeSeconds();
 	int64_t getTimeMilliseconds();
 	int64_t getTimeMicroseconds();
 
+
+
 	void update();
 
 	float getDeltaTime();
-	static GameClock* getInstance();
+	static GameClock& getInstance();
 
 private:
-
+	//singleton tools
 	static bool instanceflag;
-	static GameClock* clock;
 	GameClock();
+	GameClock(GameClock const&);
+	void operator=(GameClock const&);
+
+
+	//functional elements
 	std::chrono::high_resolution_clock m_timer;
 
 	//the time that this clock was created at

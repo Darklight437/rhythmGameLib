@@ -7,6 +7,7 @@
 int main(int argc, char* argv[])
 {
 	Toolmanager RM;
+	bool songPlaying = false;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
 	sf::CircleShape shape(100.0f);
 	shape.setOrigin(100, 100);
@@ -17,15 +18,23 @@ int main(int argc, char* argv[])
 	{
 		sf::Event event;
 
-		if (RM.songPlaying() == false)
-		{
-			RM.playCurrSong();
-			
-		}
+		
+
+		
 
 		while (window.pollEvent(event))
 		{
-			
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LControl)
+			{
+
+				if (songPlaying == false)
+				{
+					RM.playCurrSong();
+					songPlaying = true;
+				}
+				
+			}
+
 			if (event.type == sf::Event::Closed)
 			{
 				window.close();
@@ -37,6 +46,8 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
+
+
 				shape.setFillColor(sf::Color::Blue);
 				RM.dootTest();
 
@@ -50,7 +61,13 @@ int main(int argc, char* argv[])
 			window.clear();
 			window.draw(shape);
 			window.display();
+			RM.debugClock();
 			RM.update();
+
+			if (RM.songPlaying() == false)
+			{
+				songPlaying = false;
+			}
 		}
 
 		

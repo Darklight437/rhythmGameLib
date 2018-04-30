@@ -95,9 +95,6 @@ void SoundManager::soundUpdate()
 //takes a sound to test if it is playing
 bool SoundManager::soundPlaying(Sound * soundTest)
 {
-	
-	
-
 	bool* Isplaying = new bool;
 	
 	*Isplaying = false;
@@ -108,10 +105,10 @@ bool SoundManager::soundPlaying(Sound * soundTest)
 
 		m_pfmodSystem->getChannel(i, &channel);
 
-		Sound* sound;
-		channel->getCurrentSound(&sound);
+		Sound* currentSound;
+		channel->getCurrentSound(&currentSound);
 
-		if (sound == soundTest)
+		if (currentSound == soundTest)
 		{
 			channel->isPlaying(Isplaying);
 			if (*Isplaying == true)
@@ -119,7 +116,6 @@ bool SoundManager::soundPlaying(Sound * soundTest)
 				delete Isplaying;
 				std::cout << "song is playing \n";
 				return true;
-				
 			}
 		}
 	}

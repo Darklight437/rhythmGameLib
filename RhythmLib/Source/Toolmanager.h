@@ -31,7 +31,6 @@ public:
 protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
-	
 	BeatMap m_currentSong;
 };
 

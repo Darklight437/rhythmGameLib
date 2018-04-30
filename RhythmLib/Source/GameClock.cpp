@@ -37,18 +37,12 @@ float GameClock::getDeltaTime()
 	return deltaTime;
 }
 
-GameClock * GameClock::getInstance()
+GameClock& GameClock::getInstance()
 {
-	if (! instanceflag)
-	{
-		clock = new GameClock();
-		instanceflag = true;
-		return clock;
-	}
-	else
-	{
-		return clock;
-	}
+	
+	static GameClock clock;
+	return clock;
+
 }
 
 

@@ -6,6 +6,7 @@
 Toolmanager::Toolmanager()
 {
 	m_SoundM.startup();
+	
 }
 
 
@@ -55,7 +56,7 @@ void Toolmanager::debugClock()
 {
 	
 
-	std::cout << m_Clock.getTimeSeconds() << "\n";
+	std::cout << GameClock::getInstance().getTimeSeconds() << "\n";
 }
 
 void Toolmanager::recordEvent()
@@ -66,13 +67,17 @@ void Toolmanager::recordEvent()
 
 bool Toolmanager::songPlaying()
 {
-	if (m_SoundM.soundPlaying(m_SoundM.m_currSong))
+	if (m_SoundM.soundPlaying(m_SoundM.m_currSong) == true)
 	{
 		return true;
 	}
+	else
+	{
+		return false;
+	}
 	
-
 	return false;
+	
 	
 }
 
