@@ -19,7 +19,8 @@ int main(int argc, char* argv[])
 		sf::Event event;
 
 		
-
+		RM.debugClock();
+		RM.update();
 		
 
 		while (window.pollEvent(event))
@@ -31,6 +32,7 @@ int main(int argc, char* argv[])
 				{
 					RM.playCurrSong();
 					songPlaying = true;
+					//dont know why system isnt working but instead song will just NEVER play more than once as current
 				}
 				
 			}
@@ -61,13 +63,9 @@ int main(int argc, char* argv[])
 			window.clear();
 			window.draw(shape);
 			window.display();
-			RM.debugClock();
-			RM.update();
+			
 
-			if (RM.songPlaying() == false)
-			{
-				songPlaying = false;
-			}
+			
 		}
 
 		

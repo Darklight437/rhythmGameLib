@@ -24,6 +24,7 @@ public:
 	bool readMusic() {}
 	void debugClock();
 	void recordEvent();
+	bool compareinput(BeatMap map, eventpoint input);
 
 
 	bool songPlaying();

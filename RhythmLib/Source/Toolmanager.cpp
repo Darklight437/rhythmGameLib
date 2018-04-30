@@ -64,6 +64,15 @@ void Toolmanager::recordEvent()
 	//m_currentSong
 
 }
+//compares a single time event to the saved list of time events for the current song 
+bool Toolmanager::compareinput(BeatMap map, eventpoint input)
+{
+	//get the time out of the object
+	//check it against the time in the beatmap(beatmaps just store times not fancy structs
+	//if within a threshold rate as a pass
+
+	return false;//yep
+}
 
 bool Toolmanager::songPlaying()
 {

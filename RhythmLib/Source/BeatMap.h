@@ -10,7 +10,7 @@ public:
 	BeatMap();
 	~BeatMap();
 	//returns a vector of beats as timestamps
-	std::vector<eventpoint> getTimeEvents();
+	std::vector<int64_t> getTimeEvents();
 	void recordEvent();
 
 
@@ -18,7 +18,7 @@ public:
 	
 private:
 
-	std::vector<eventpoint> beatEvents;
+	std::vector<int64_t> beatTimes;
 
 	
 };
