@@ -40,8 +40,26 @@ public:
 	bool readMusic() {}
 	void debugClock();
 	void recordEvent();
-	bool compareinput(BeatMap map, eventpoint input);
 
+	//beat and timing functions
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+	//returns the difference between the input and the closest correct beat
+	float compareinput(BeatMap map, eventpoint input);
+	//returns the most recent event created by the player
+	eventpoint getLatestBeat();
+
+	
+	//takes input comparison float and rates it from 0-4 4 being highest accuracy
+	int rateBeatEasy();
+	//as above but harsher for difficulty
+	int rateBeatMedium();
+	//hardest accuracy standard
+	int rateBeatHard();
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+	//consigned to irrelevant because FMOD hates me
 	bool songPlaying();
 
 protected:
