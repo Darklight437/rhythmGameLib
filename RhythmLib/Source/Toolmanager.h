@@ -17,8 +17,24 @@ public:
 	
 	void dootTest();
 	void playCurrSong();
-	std::string getExePath();
+	
+	//call this each frame to clean up fmod & other systems
 	void update();
+
+	//loads a song from the audio folder inside the bin folder of your application
+	//there can only be one song loaded and loading another will overwrite the old one
+	bool loadSong(const char* songName);
+	bool loadSong(std::string songName);
+
+	//same as song but will allow any number to be loaded
+	bool loadSound(const char* soundName);
+	bool loadSound(std::string soundName);
+
+
+	//might not be able to delete TODO learn if this is possible
+	//bool deleteSound(const char* soundName);
+	//bool deleteSound(std::string soundName);
+
 	void comparator() {}
 	bool writeInput() {}
 	bool readMusic() {}
@@ -26,10 +42,10 @@ public:
 	void recordEvent();
 	bool compareinput(BeatMap map, eventpoint input);
 
-
 	bool songPlaying();
 
 protected:
+	std::string getExePath();
 	SoundManager m_SoundM;
 	std::thread mythread;
 	BeatMap m_currentSong;
