@@ -104,13 +104,14 @@ void Toolmanager::recordEvent()
 
 }
 //compares a single time event to the saved list of time events for the current song 
+//TODO make this mutex dependant OR make a threading wrapper
 bool Toolmanager::compareinput(BeatMap map, eventpoint input)
 {
 	//get the time out of the object
 	int64_t pressTime = input.timeEvent;
 	if (pressTime <= map.getTimeEvents().front())//presstime is compared to the front of the list of time events
 	{
-		//
+		//refer to book
 		
 	}
 	//search arange by identiftying a variance amount
