@@ -108,6 +108,12 @@ bool Toolmanager::compareinput(BeatMap map, eventpoint input)
 {
 	//get the time out of the object
 	int64_t pressTime = input.timeEvent;
+	if (pressTime <= map.getTimeEvents().front())//presstime is compared to the front of the list of time events
+	{
+		//
+		
+	}
+	//search arange by identiftying a variance amount
 	//check it against the time in the beatmap(beatmaps just store times not fancy structs
 	//if within a threshold rate as a pass
 
