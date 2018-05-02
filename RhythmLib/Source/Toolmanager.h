@@ -48,7 +48,8 @@ public:
 	float compareinput(BeatMap map, eventpoint input);
 	//returns the most recent event created by the player
 	eventpoint getLatestBeat();
-
+	
+	void handleBeat();
 	
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
 	int rateBeatEasy();

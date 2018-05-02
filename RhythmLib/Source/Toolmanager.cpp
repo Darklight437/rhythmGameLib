@@ -109,6 +109,12 @@ float Toolmanager::compareinput(BeatMap map, eventpoint input)
 	return 0.0f;
 }
 
+eventpoint Toolmanager::getLatestBeat()
+{
+	m_currentSong;
+	return eventpoint();
+}
+
 
 
 bool Toolmanager::songPlaying()
