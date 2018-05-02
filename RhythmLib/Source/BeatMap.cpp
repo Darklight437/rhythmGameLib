@@ -1,7 +1,12 @@
 #include "BeatMap.h"
+//difficulty between 0 and 2
+BeatMap::BeatMap(int difficultyRating)
+{
 
+}
 BeatMap::BeatMap()
 {
+
 }
 
 BeatMap::~BeatMap()
