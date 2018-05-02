@@ -111,8 +111,13 @@ float Toolmanager::compareinput(BeatMap map, eventpoint input)
 
 eventpoint Toolmanager::getLatestBeat()
 {
-	m_currentSong;
+	m_currentSong.getTimeEvents().front();
 	return eventpoint();
+}
+
+void Toolmanager::handleBeat()
+{
+	//take a beatevent as an argument
 }
 
 
