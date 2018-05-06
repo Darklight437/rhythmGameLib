@@ -10,7 +10,7 @@ public:
 	BeatMap(int difficultyRating);
 	~BeatMap();
 	//returns a vector of beats as timestamps
-	std::vector<int64_t> getTimeEvents();
+	std::vector<eventpoint> getTimeEvents();
 	void recordEvent();
 	
 
@@ -19,7 +19,7 @@ public:
 	
 private:
 	
-	std::vector<int64_t> beatTimes;
+	std::vector<eventpoint> beatTimes;
 	int difficulty = 0;
 	
 };

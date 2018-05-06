@@ -45,7 +45,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	//returns the difference between the input and the closest correct beat
-	float compareinput(BeatMap map, eventpoint input);
+	float compareinput(eventpoint currNote, eventpoint input);
 	//returns the most recent event created by the player
 	eventpoint getLatestBeat();
 	//evaluates player input and sets m_lastScore

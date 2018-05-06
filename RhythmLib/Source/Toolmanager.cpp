@@ -103,9 +103,11 @@ void Toolmanager::recordEvent()
 	//m_currentSong
 
 }
-//returns the event if it was 
-float Toolmanager::compareinput(BeatMap map, eventpoint input)
+//returns how close the player input was to the beat
+float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 {
+
+
 	return 0.0f;
 }
 
@@ -115,9 +117,10 @@ eventpoint Toolmanager::getLatestBeat()
 	return eventpoint();
 }
 
-void Toolmanager::handleBeat()
+void Toolmanager::handleBeat(eventpoint beat)
 {
 	//take a beatevent as an argument
+	compareinput(m_currentSong, beat);
 }
 
 
