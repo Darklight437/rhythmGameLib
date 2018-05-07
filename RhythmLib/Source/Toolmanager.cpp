@@ -95,7 +95,7 @@ void Toolmanager::debugClock()
 {
 	
 
-	std::cout << GameClock::getInstance().getTimeSeconds() << "\n";
+	std::cout << GameClock::getInstance().getTimeMilliseconds() << "\n";
 }
 
 void Toolmanager::recordEvent()
@@ -106,9 +106,16 @@ void Toolmanager::recordEvent()
 //returns how close the player input was to the beat
 float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 {
+	//working in miliseconds
+	//if it's within 500MS count it
+	int64_t d1 = 1500;
+	int64_t difference = input.timeEvent - currNote.timeEvent;
+	if (difference <=  d1)
+	{
+		return difference;
+	}
 
-
-	return 0.0f;
+	return 1000.0f;
 }
 
 eventpoint Toolmanager::getLatestBeat()
@@ -120,7 +127,12 @@ eventpoint Toolmanager::getLatestBeat()
 void Toolmanager::handleBeat(eventpoint beat)
 {
 	//take a beatevent as an argument
-	compareinput(m_currentSong, beat);
+	compareinput(getLatestBeat(), beat);
+}
+
+int Toolmanager::rateBeatEasy()
+{
+	return 0;
 }
 
 
