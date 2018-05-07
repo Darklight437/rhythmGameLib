@@ -52,12 +52,10 @@ public:
 	void handleBeat(eventpoint beat);
 	
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
-	int rateBeatEasy();
-	//as above but harsher for difficulty
-	int rateBeatMedium();
-	//hardest accuracy standard
-	int rateBeatHard();
-
+	int rateBeat(float differenceOfNote);
+	//set ratings for difference from the note in milliseconds
+	void setDifficulties(float perfect, float great, float good, float bad);
+	
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	//threading tools / wrapper
@@ -69,7 +67,15 @@ public:
 	//consigned to irrelevant because FMOD hates me
 	bool songPlaying();
 
+	
+
+
 protected:
+	//accuracy values in milliseconds
+	float m_perfect = 25.0f;
+	float m_great = 41.0f;
+	float m_good = 81.0f;
+	float m_bad = 121.0f;
 	std::string getExePath();
 	SoundManager m_SoundM;
 	std::thread mythread;

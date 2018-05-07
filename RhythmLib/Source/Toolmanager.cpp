@@ -108,14 +108,14 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 {
 	//working in miliseconds
 	//if it's within 500MS count it
-	int64_t d1 = 1500;
+	int64_t d1 = 200;
 	int64_t difference = input.timeEvent - currNote.timeEvent;
 	if (difference <=  d1)
 	{
 		return difference;
 	}
 
-	return 1000.0f;
+	return 300.0f;
 }
 
 eventpoint Toolmanager::getLatestBeat()
@@ -130,9 +130,31 @@ void Toolmanager::handleBeat(eventpoint beat)
 	compareinput(getLatestBeat(), beat);
 }
 
-int Toolmanager::rateBeatEasy()
+int Toolmanager::rateBeat(float differenceOfNote)
 {
-	return 0;
+	if (differenceOfNote <= m_bad  && differenceOfNote > m_good)
+	{
+		return 1;
+	}
+
+	if (differenceOfNote >= m_good && differenceOfNote > m_great)
+	{
+		return 2;
+	}
+
+	if (differenceOfNote >= m_great && differenceOfNote > m_perfect)
+	{
+		return 3;
+	}
+	if (differenceOfNote <= m_perfect)
+	{
+		return 4;
+	}
+}
+
+void Toolmanager::setDifficulties(float perfect, float great, float good, float bad)
+{
+	m_perfect = perfect;
 }
 
 
