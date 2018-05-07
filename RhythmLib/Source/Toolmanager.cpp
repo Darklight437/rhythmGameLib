@@ -155,6 +155,9 @@ int Toolmanager::rateBeat(float differenceOfNote)
 void Toolmanager::setDifficulties(float perfect, float great, float good, float bad)
 {
 	m_perfect = perfect;
+	m_great = great;
+	m_good = good;
+	m_bad = bad;
 }
 
 
