@@ -137,12 +137,12 @@ int Toolmanager::rateBeat(float differenceOfNote)
 		return 1;
 	}
 
-	if (differenceOfNote >= m_good && differenceOfNote > m_great)
+	if (differenceOfNote <= m_good && differenceOfNote > m_great)
 	{
 		return 2;
 	}
 
-	if (differenceOfNote >= m_great && differenceOfNote > m_perfect)
+	if (differenceOfNote <= m_great && differenceOfNote > m_perfect)
 	{
 		return 3;
 	}
