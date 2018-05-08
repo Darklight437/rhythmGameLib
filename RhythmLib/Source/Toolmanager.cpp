@@ -98,9 +98,11 @@ void Toolmanager::debugClock()
 	std::cout << GameClock::getInstance().getTimeMilliseconds() << "\n";
 }
 
-void Toolmanager::recordEvent()
+void Toolmanager::recordEvent(eventpoint beat)
 {
 	
+
+
 
 }
 //returns how close the player input was to the beat
@@ -125,9 +127,14 @@ eventpoint Toolmanager::getLatestBeat()
 	return eventpoint();
 }
 
-int Toolmanager::handleBeat(eventpoint beat)
+int Toolmanager::handleBeat(eventpoint beat, bool recording)
 {
 	//take a beatevent as an argument
+	if (recording)
+	{
+		recordEvent(beat);
+	}
+
 	float difference;
 	difference = compareinput(getLatestBeat(), beat);
 

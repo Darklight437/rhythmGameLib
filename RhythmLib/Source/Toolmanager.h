@@ -39,7 +39,7 @@ public:
 	bool writeInput() {}
 	bool readMusic() {}
 	void debugClock();
-	void recordEvent();
+	void recordEvent(eventpoint beat);
 
 	//beat and timing functions
 /////////////////////////////////////////////////////////////////////////////////////////////////
