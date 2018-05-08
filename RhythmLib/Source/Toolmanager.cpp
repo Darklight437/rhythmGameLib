@@ -1,7 +1,7 @@
 #include "Toolmanager.h"
 #include <iostream>
 #include <Windows.h>
-
+#include <mutex>
 
 Toolmanager::Toolmanager()
 {
@@ -124,14 +124,23 @@ eventpoint Toolmanager::getLatestBeat()
 	return eventpoint();
 }
 
-void Toolmanager::handleBeat(eventpoint beat)
+int Toolmanager::handleBeat(eventpoint beat)
 {
 	//take a beatevent as an argument
-	compareinput(getLatestBeat(), beat);
+	float difference;
+	difference = compareinput(getLatestBeat(), beat);
+
+	int beatscore = rateBeat(difference);
+	return beatscore;
+
 }
 
 int Toolmanager::rateBeat(float differenceOfNote)
 {
+	if (differenceOfNote = 300.0f)
+	{
+		return 0;
+	}
 	if (differenceOfNote <= m_bad  && differenceOfNote > m_good)
 	{
 		return 1;
@@ -158,6 +167,15 @@ void Toolmanager::setDifficulties(float perfect, float great, float good, float 
 	m_great = great;
 	m_good = good;
 	m_bad = bad;
+}
+
+void Toolmanager::runthread()
+{
+	static int lastScore;
+	static std::mutex mutex;
+	
+
+
 }
 
 

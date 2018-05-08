@@ -49,7 +49,7 @@ public:
 	//returns the most recent event created by the player
 	eventpoint getLatestBeat();
 	//evaluates player input and sets m_lastScore
-	void handleBeat(eventpoint beat);
+	int handleBeat(eventpoint beat);
 	
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
 	int rateBeat(float differenceOfNote);
@@ -60,6 +60,9 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	//threading tools / wrapper
 	//TODO all of this
+	//up in the air if this is nessecary
+	void runthread();
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
