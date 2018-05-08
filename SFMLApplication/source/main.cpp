@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
 	shape.setOrigin(100, 100);
 	shape.setPosition(400, 300);
 	shape.setFillColor(sf::Color::Green);
+	bool recordingMode = false;
 
 	while (window.isOpen())
 	{

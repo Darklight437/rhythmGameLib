@@ -100,7 +100,7 @@ void Toolmanager::debugClock()
 
 void Toolmanager::recordEvent()
 {
-	//m_currentSong
+	
 
 }
 //returns how close the player input was to the beat
@@ -109,9 +109,10 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 	//working in miliseconds
 	//if it's within 500MS count it
 	int64_t d1 = 200;
-	int64_t difference = input.timeEvent - currNote.timeEvent;
+	float difference = input.timeEvent - currNote.timeEvent;
 	if (difference <=  d1)
 	{
+		
 		return difference;
 	}
 
@@ -159,6 +160,8 @@ int Toolmanager::rateBeat(float differenceOfNote)
 	{
 		return 4;
 	}
+
+	return 0;
 }
 
 void Toolmanager::setDifficulties(float perfect, float great, float good, float bad)
