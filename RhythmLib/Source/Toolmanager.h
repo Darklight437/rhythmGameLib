@@ -39,7 +39,7 @@ public:
 	bool writeInput() {}
 	bool readMusic() {}
 	void debugClock();
-	void recordEvent(eventpoint beat);
+	eventpoint recordEvent();
 
 	//beat and timing functions
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ public:
 	//returns the most recent event created by the player
 	eventpoint getLatestBeat();
 	//evaluates player input and sets m_lastScore
-	int handleBeat(eventpoint beat);
+	int handleBeat(eventpoint beat, bool recording);
 	
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
 	int rateBeat(float differenceOfNote);

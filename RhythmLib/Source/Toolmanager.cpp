@@ -97,12 +97,11 @@ void Toolmanager::debugClock()
 
 	std::cout << GameClock::getInstance().getTimeMilliseconds() << "\n";
 }
-
-void Toolmanager::recordEvent(eventpoint beat)
+//creates am eventpoint at the current time and using a keycode
+eventpoint Toolmanager::recordEvent()
 {
-	
-
-
+	eventpoint beat;
+	beat.timeEvent = GameClock::getInstance().getTimeMilliseconds;
 
 }
 //returns how close the player input was to the beat
