@@ -46,15 +46,19 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	//returns the difference between the input and the closest correct beat
 	float compareinput(eventpoint currNote, eventpoint input);
+
 	//returns the most recent event created by the player
 	eventpoint getLatestBeat();
+
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);
+
 	//makes an event at the time it was called
 	eventpoint createEvent();
 
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
 	int rateBeat(float differenceOfNote);
+
 	//set ratings for difference from the note in milliseconds
 	void setDifficulties(float perfect, float great, float good, float bad);
 	
@@ -86,5 +90,6 @@ protected:
 	SoundManager m_SoundM;
 	std::thread mythread;
 	BeatMap m_currentSong;
+	BeatMap m_recording;
 };
 

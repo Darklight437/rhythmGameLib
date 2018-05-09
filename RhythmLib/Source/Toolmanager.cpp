@@ -93,7 +93,10 @@ bool Toolmanager::loadSound(std::string soundName)
 
 void Toolmanager::writeEvent(eventpoint e)
 {
-	
+	//save the eventpoint to a new beatmap
+	m_recording
+
+
 }
 
 void Toolmanager::debugClock()

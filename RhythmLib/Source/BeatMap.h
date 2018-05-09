@@ -11,7 +11,7 @@ public:
 	~BeatMap();
 	//returns a vector of beats as timestamps
 	std::vector<eventpoint> getTimeEvents();
-	void recordEvent();
+	void addEvent(eventpoint e);
 	
 
 

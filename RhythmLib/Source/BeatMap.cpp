@@ -18,13 +18,11 @@ std::vector<eventpoint> BeatMap::getTimeEvents()
 	return beatTimes;
 }
 
-void BeatMap::recordEvent()
+void BeatMap::addEvent(eventpoint e)
 {
-	int64_t beat;
-	beat = GameClock::getInstance().getTimeMilliseconds();
-	eventpoint event1;
-	event1.timeEvent = beat;
-	beatTimes.push_back(event1);
+	beatTimes.push_back(e);
 }
+
+
 
 
