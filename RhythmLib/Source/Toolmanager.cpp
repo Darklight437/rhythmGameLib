@@ -91,6 +91,11 @@ bool Toolmanager::loadSound(std::string soundName)
 	return false;
 }
 
+void Toolmanager::writeEvent(eventpoint e)
+{
+	
+}
+
 void Toolmanager::debugClock()
 {
 	
@@ -98,10 +103,11 @@ void Toolmanager::debugClock()
 	std::cout << GameClock::getInstance().getTimeMilliseconds() << "\n";
 }
 //creates am eventpoint at the current time and using a keycode
-eventpoint Toolmanager::recordEvent()
+eventpoint Toolmanager::createEvent()
 {
 	eventpoint beat;
-	beat.timeEvent = GameClock::getInstance().getTimeMilliseconds;
+	beat.timeEvent = GameClock::getInstance().getTimeMilliseconds();
+	return beat;
 
 }
 //returns how close the player input was to the beat
@@ -131,7 +137,7 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 	//take a beatevent as an argument
 	if (recording)
 	{
-		recordEvent(beat);
+		writeEvent(beat);
 	}
 
 	float difference;

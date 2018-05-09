@@ -35,11 +35,11 @@ public:
 	//bool deleteSound(const char* soundName);
 	//bool deleteSound(std::string soundName);
 
-	void comparator() {}
-	bool writeInput() {}
+	
+	
 	bool readMusic() {}
 	void debugClock();
-	eventpoint recordEvent();
+
 
 	//beat and timing functions
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,7 +50,9 @@ public:
 	eventpoint getLatestBeat();
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);
-	
+	//makes an event at the time it was called
+	eventpoint createEvent();
+
 	//takes input comparison float and rates it from 0-4 4 being highest accuracy
 	int rateBeat(float differenceOfNote);
 	//set ratings for difference from the note in milliseconds
@@ -74,6 +76,7 @@ public:
 
 
 protected:
+	void writeEvent(eventpoint);
 	//accuracy values in milliseconds
 	float m_perfect = 25.0f;
 	float m_great = 41.0f;
