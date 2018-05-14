@@ -173,12 +173,16 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 		writeEvent(beat);
 		return 4;
 	}
+	else
+	{
+		float difference;
+		difference = compareinput(getLatestBeat(), beat);
 
-	float difference;
-	difference = compareinput(getLatestBeat(), beat);
+		int beatscore = rateBeat(difference);
+		return beatscore;
+	}
 
-	int beatscore = rateBeat(difference);
-	return beatscore;
+	
 
 }
 
