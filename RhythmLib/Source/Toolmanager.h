@@ -1,5 +1,4 @@
 #pragma once
-#include <thread>
 #include <string>
 #include "SoundManager.h"
 #include"GameClock.h"
@@ -12,14 +11,19 @@ public:
 	Toolmanager();
 	~Toolmanager();
 
-	void startThread() {};
-	void endThread();
+	
 	
 	void dootTest();
 	void playCurrSong();
 	
 	//call this each frame to clean up fmod & other systems
 	void update();
+
+	//Loading functions
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+	
+
 
 	//loads a song from the audio folder inside the bin folder of your application
 	//there can only be one song loaded and loading another will overwrite the old one
@@ -30,12 +34,8 @@ public:
 	bool loadSound(const char* soundName);
 	bool loadSound(std::string soundName);
 
-
-	//might not be able to delete TODO learn if this is possible
-	//bool deleteSound(const char* soundName);
-	//bool deleteSound(std::string soundName);
-
-	
+	bool loadMap(const char* mapName);
+	bool saveMap();
 	
 	bool readMusic() {}
 	void debugClock();
@@ -64,14 +64,9 @@ public:
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
-	//threading tools / wrapper
-	//TODO all of this
-	//up in the air if this is nessecary
-	void runthread();
+	
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//consigned to irrelevant because FMOD hates me
 	bool songPlaying();
@@ -89,7 +84,6 @@ protected:
 	void serialiseBeatmap();
 	std::string getExePath();
 	SoundManager m_SoundM;
-	std::thread mythread;
 	BeatMap m_currentSong;
 	BeatMap m_recording;
 };

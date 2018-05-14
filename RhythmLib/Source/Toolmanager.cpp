@@ -18,10 +18,7 @@ Toolmanager::~Toolmanager()
 	
 }
 
-void Toolmanager::endThread()
-{
-	mythread.join();
-}
+
 
 void Toolmanager::dootTest()
 {
@@ -111,6 +108,18 @@ bool Toolmanager::loadSound(std::string soundName)
 	return false;
 }
 
+bool Toolmanager::loadMap(const char * mapName)
+{
+	//iostream read in the text file
+	return false;
+}
+
+bool Toolmanager::saveMap()
+{
+	
+	return false;
+}
+
 void Toolmanager::writeEvent(eventpoint e)
 {
 	//save the eventpoint to a new beatmap
@@ -161,6 +170,7 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 	if (recording)
 	{
 		writeEvent(beat);
+		return 4;
 	}
 
 	float difference;
@@ -207,14 +217,7 @@ void Toolmanager::setDifficulties(float perfect, float great, float good, float 
 	m_bad = bad;
 }
 
-void Toolmanager::runthread()
-{
-	static int lastScore;
-	static std::mutex mutex;
-	
 
-
-}
 
 
 
