@@ -86,6 +86,7 @@ protected:
 	float m_great = 41.0f;
 	float m_good = 81.0f;
 	float m_bad = 121.0f;
+	void serialiseBeatmap();
 	std::string getExePath();
 	SoundManager m_SoundM;
 	std::thread mythread;

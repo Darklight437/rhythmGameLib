@@ -1,5 +1,6 @@
 #include "Toolmanager.h"
 #include <iostream>
+#include <fstream>
 #include <Windows.h>
 #include <mutex>
 
@@ -32,6 +33,15 @@ void Toolmanager::playCurrSong()
 }
 
 
+
+void Toolmanager::serialiseBeatmap()
+{
+	std::ofstream song1;
+	
+	
+	//write each entry in the beatmap to it
+	//done
+}
 
 std::string Toolmanager::getExePath()
 {
@@ -94,7 +104,7 @@ bool Toolmanager::loadSound(std::string soundName)
 void Toolmanager::writeEvent(eventpoint e)
 {
 	//save the eventpoint to a new beatmap
-	m_recording
+	m_recording.addEvent(e);
 
 
 }
