@@ -1,6 +1,7 @@
 #include "Toolmanager.h"
 #include <iostream>
 #include <fstream>
+#include <iterator>
 #include <Windows.h>
 #include <mutex>
 
@@ -38,7 +39,16 @@ void Toolmanager::serialiseBeatmap()
 {
 	std::ofstream song1;
 	
-	
+	std::vector<eventpoint> beats = m_recording.getTimeEvents();
+	std::vector<eventpoint>::iterator it = beats.begin();
+	song1.open("recording test");
+
+	for (int i = 0; i < beats.size(); i++)
+	{
+
+		song1 << it->timeEvent << "/n";
+		it++;
+	}
 	//write each entry in the beatmap to it
 	//done
 }
