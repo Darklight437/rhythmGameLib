@@ -13,7 +13,7 @@ public:
 
 	
 	
-	void dootTest();
+	void beatSound();
 	void playCurrSong();
 	
 	//call this each frame to clean up fmod & other systems
@@ -87,4 +87,3 @@ protected:
 	BeatMap m_currentSong;
 	BeatMap m_recording;
 };
-

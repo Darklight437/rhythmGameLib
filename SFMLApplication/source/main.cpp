@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 				RM.handleBeat(RM.createEvent(), recordingMode);
 
 				shape.setFillColor(sf::Color::Blue);
-				RM.dootTest();
+				RM.beatSound();
 
 			}
 

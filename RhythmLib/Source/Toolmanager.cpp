@@ -20,7 +20,7 @@ Toolmanager::~Toolmanager()
 
 
 
-void Toolmanager::dootTest()
+void Toolmanager::beatSound()
 {
 	m_SoundM.Playsound(m_SoundM.m_FXfiles[0]);
 }
@@ -46,8 +46,9 @@ void Toolmanager::serialiseBeatmap()
 		song1 << it->timeEvent << "/n";
 		it++;
 	}
-	//write each entry in the beatmap to it
-	//done
+
+	song1.close();
+
 }
 
 std::string Toolmanager::getExePath()
@@ -116,7 +117,7 @@ bool Toolmanager::loadMap(const char * mapName)
 
 bool Toolmanager::saveMap()
 {
-	
+	serialiseBeatmap();
 	return false;
 }
 
