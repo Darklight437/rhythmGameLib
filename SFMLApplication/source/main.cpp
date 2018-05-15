@@ -13,7 +13,26 @@ int main(int argc, char* argv[])
 	shape.setOrigin(100, 100);
 	shape.setPosition(400, 300);
 	shape.setFillColor(sf::Color::Green);
-	bool recordingMode = false;
+	bool recordingMode = true;
+	int accuracyScore;
+	//text
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+	sf::Font font;
+	sf::Text text;
+	if (!font.loadFromFile("/resources/BOOKOS.TFF"))
+	{
+		//error system
+	}
+	text.setFont(font);
+	text.setFillColor(sf::Color::White);
+	
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 	while (window.isOpen())
 	{
@@ -22,7 +41,7 @@ int main(int argc, char* argv[])
 		
 		RM.debugClock();
 		RM.update();
-		
+		window.draw(text);
 
 		while (window.pollEvent(event))
 		{
@@ -51,7 +70,33 @@ int main(int argc, char* argv[])
 			{
 				
 				
-				RM.handleBeat(RM.createEvent(), recordingMode);
+				accuracyScore = RM.handleBeat(RM.createEvent(), recordingMode);
+				switch (accuracyScore)
+				{
+				case 0:
+					text.setFillColor(sf::Color::Red);
+					text.setString("Miss");
+					break;
+				case 1:
+					text.setFillColor(sf::Color::Red);
+					text.setString("Bad");
+					break;
+				case 2:
+					text.setFillColor(sf::Color::White);
+					text.setString("Good");
+					break;
+				case 3:
+					text.setFillColor(sf::Color::Green);
+					text.setString("Great");
+					break;
+				case 4:
+					//its gold 
+					text.setFillColor(sf::Color::Color(255,215,0));
+					text.setString("Perfect");
+
+				default:
+					break;
+				}
 
 				shape.setFillColor(sf::Color::Blue);
 				RM.beatSound();
@@ -65,14 +110,10 @@ int main(int argc, char* argv[])
 
 			window.clear();
 			window.draw(shape);
-			window.display();
-			
-
-			
-		}
-
-		
+			window.display();						
+		}		
 	}
-
 	return 0;
 }
+
+
