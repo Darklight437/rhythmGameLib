@@ -71,6 +71,8 @@ public:
 	//consigned to irrelevant because FMOD hates me
 	bool songPlaying();
 
+	//returns the absolute path to the EXE
+	std::string getExePath();
 	
 
 
@@ -82,7 +84,7 @@ protected:
 	float m_good = 81.0f;
 	float m_bad = 121.0f;
 	void serialiseBeatmap();
-	std::string getExePath();
+
 	SoundManager m_SoundM;
 	BeatMap m_currentSong;
 	BeatMap m_recording;

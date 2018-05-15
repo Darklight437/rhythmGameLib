@@ -1,6 +1,6 @@
 #include <SFML\Graphics.hpp>
 #include <Toolmanager.h>
-
+#include <iostream>
 
 //welcome to my shitty OSU ripoff
 
@@ -20,12 +20,14 @@ int main(int argc, char* argv[])
 /////////////////////////////////////////////////////////////////////////////////////
 	sf::Font font;
 	sf::Text text;
-	if (!font.loadFromFile("/resources/BOOKOS.TFF"))
+	if (!font.loadFromFile("resources/arial.TFF"))
 	{
+		std::cout << "NO LOAD" << "/n" ;
 		//error system
 	}
 	text.setFont(font);
 	text.setFillColor(sf::Color::White);
+	text.setPosition(sf::Vector2f(10, 10));
 	
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -55,6 +57,11 @@ int main(int argc, char* argv[])
 					//dont know why system isnt working but instead song will just NEVER play more than once as current
 				}
 				
+			}
+
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::RControl)
+			{
+				RM.saveMap();
 			}
 
 			if (event.type == sf::Event::Closed)
