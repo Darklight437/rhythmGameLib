@@ -38,12 +38,12 @@ void Toolmanager::serialiseBeatmap()
 	
 	std::vector<eventpoint> beats = m_recording.getTimeEvents();
 	std::vector<eventpoint>::iterator it = beats.begin();
-	song1.open("recording test");
+	song1.open("recording test.txt");
 
 	for (int i = 0; i < beats.size(); i++)
 	{
 
-		song1 << it->timeEvent << "/n";
+		song1 << it->timeEvent << "\n";
 		it++;
 	}
 
@@ -71,18 +71,12 @@ void Toolmanager::update()
 	
 }
 
-bool Toolmanager::loadSong(const char * songName)
-{
-	if (m_SoundM.loadSong(songName))
-	{
-		return true;
-	}
-	return false;
-}
 
-bool Toolmanager::loadSong(std::string songName)
+
+bool Toolmanager::loadSong(std::string songName, std::string path)
 {
-	const char * songNamechar = songName.c_str();
+	std::string fullName = path + songName;
+	const char * songNamechar = fullName.c_str();
 	if (m_SoundM.loadSong(songNamechar))
 	{
 		return true;
@@ -90,17 +84,11 @@ bool Toolmanager::loadSong(std::string songName)
 	return false;
 }
 
-bool Toolmanager::loadSound(const char * soundName)
-{
-	if (m_SoundM.loadSound(soundName))
-	{
-		return true;
-	}
-	return false;
-}
 
-bool Toolmanager::loadSound(std::string soundName)
+
+bool Toolmanager::loadSound(std::string soundName, std::string path)
 {
+	std::string fullName = path + soundName;
 	const char * soundNamechar = soundName.c_str();
 	if (m_SoundM.loadSound(soundNamechar))
 	{
@@ -109,7 +97,7 @@ bool Toolmanager::loadSound(std::string soundName)
 	return false;
 }
 
-bool Toolmanager::loadMap(const char * mapName)
+bool Toolmanager::loadMap(const char * mapName, std::string path)
 {
 	//iostream read in the text file
 	return false;

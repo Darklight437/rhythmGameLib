@@ -20,30 +20,41 @@ int main(int argc, char* argv[])
 /////////////////////////////////////////////////////////////////////////////////////
 	sf::Font font;
 	sf::Text text;
-	if (!font.loadFromFile("resources/arial.TFF"))
+	if (!font.loadFromFile(RM.getExePath() + "\\resources\\arial.ttf"))
 	{
-		std::cout << "NO LOAD" << "/n" ;
+		std::cout << "NO LOAD" << "\n" ;
 		//error system
 	}
 	text.setFont(font);
+	text.setCharacterSize(30);
 	text.setFillColor(sf::Color::White);
-	text.setPosition(sf::Vector2f(10, 10));
-	
+	text.setPosition(sf::Vector2f(100, 100));
+
+	//Loading music	
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+	RM.loadSong("Dieseldotogg.wav", RM.getExePath());
+	RM.loadSound("gunshot.wav", RM.getExePath());
 
 
+
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 
 	while (window.isOpen())
 	{
 		sf::Event event;
-
 		
 		RM.debugClock();
 		RM.update();
-		window.draw(text);
+		//reset text
+		text.setString(" ");
+			
+		
+		
+		
 
 		while (window.pollEvent(event))
 		{
@@ -115,10 +126,18 @@ int main(int argc, char* argv[])
 				shape.setFillColor(sf::Color::Green);
 			}
 
+			
+
+			//drawing section
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 			window.clear();
+			window.draw(text);
 			window.draw(shape);
-			window.display();						
-		}		
+			window.display();		
+			
+		}	
+		
 	}
 	return 0;
 }

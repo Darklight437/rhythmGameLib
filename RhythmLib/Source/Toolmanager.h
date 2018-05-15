@@ -23,18 +23,16 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	
-
+	
 
 	//loads a song from the audio folder inside the bin folder of your application
 	//there can only be one song loaded and loading another will overwrite the old one
-	bool loadSong(const char* songName);
-	bool loadSong(std::string songName);
+	bool loadSong(std::string songName, std::string path);
 
 	//same as song but will allow any number to be loaded
-	bool loadSound(const char* soundName);
-	bool loadSound(std::string soundName);
+	bool loadSound(std::string soundName, std::string path);
 
-	bool loadMap(const char* mapName);
+	bool loadMap(const char* mapName, std::string path);
 	bool saveMap();
 	
 	bool readMusic() {}
@@ -84,7 +82,7 @@ protected:
 	float m_good = 81.0f;
 	float m_bad = 121.0f;
 	void serialiseBeatmap();
-
+	std::string path = getExePath();
 	SoundManager m_SoundM;
 	BeatMap m_currentSong;
 	BeatMap m_recording;

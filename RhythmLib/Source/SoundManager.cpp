@@ -1,6 +1,6 @@
 #include "SoundManager.h"
 #include <fmod_errors.h>
-
+#include <Windows.h>
 #include <iostream>
 
 SoundManager::SoundManager()
@@ -48,7 +48,7 @@ bool SoundManager::loadSound(const char* soundfile)
 	
 	Sound* pSound = nullptr;
 	
-	FMOD_RESULT result = m_pfmodSystem->createSound(soundfile, FMOD_DEFAULT, 0, &pSound);
+	FMOD_RESULT result = m_pfmodSystem->createSound( soundfile, FMOD_DEFAULT, 0, &pSound);
 
 	if (result != FMOD_OK)
 	{
@@ -92,6 +92,20 @@ System * SoundManager::Getsystem()
 void SoundManager::soundUpdate()
 {
 	m_pfmodSystem->update();
+}
+
+std::string SoundManager::getExePath()
+{
+	char buffer[MAX_PATH];
+	GetModuleFileName(NULL, buffer, MAX_PATH);
+	char *pos;
+
+	if (pos = strrchr(buffer, '\\'))
+	{
+		*pos = 0;
+	}
+
+	return buffer;
 }
 
 //takes a sound to test if it is playing
