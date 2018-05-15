@@ -1,2 +1,2 @@
-Visual text representation of accuracy "good, great" etc
 read beatmaps from file
+incoming note warning system

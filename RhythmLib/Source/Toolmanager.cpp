@@ -137,7 +137,7 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 	//working in miliseconds
 	//if it's within 500MS count it
 	int64_t d1 = 200;
-	float difference = input.timeEvent - currNote.timeEvent;
+	float difference = (float)input.timeEvent - (float) currNote.timeEvent;
 	if (difference <=  d1)
 	{
 		
