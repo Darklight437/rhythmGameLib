@@ -31,9 +31,9 @@ public:
 
 	//same as song but will allow any number to be loaded
 	bool loadSound(std::string soundName, std::string path);
-
-	bool loadMap(const char* mapName, std::string path);
-	bool saveMap();
+	
+	bool loadMap(std::string mapName, std::string path);
+	bool saveMap(std::string mapname);
 	
 	bool readMusic() {}
 	void debugClock();
@@ -81,7 +81,7 @@ protected:
 	float m_great = 41.0f;
 	float m_good = 81.0f;
 	float m_bad = 121.0f;
-	void serialiseBeatmap();
+	void serialiseBeatmap(std::string mapname);
 	std::string path = getExePath();
 	SoundManager m_SoundM;
 	BeatMap m_currentSong;

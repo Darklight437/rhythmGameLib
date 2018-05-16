@@ -32,13 +32,13 @@ void Toolmanager::playCurrSong()
 
 
 
-void Toolmanager::serialiseBeatmap()
+void Toolmanager::serialiseBeatmap(std::string mapname)
 {
 	std::ofstream song1;
 	
 	std::vector<eventpoint> beats = m_recording.getTimeEvents();
 	std::vector<eventpoint>::iterator it = beats.begin();
-	song1.open("recording test.txt");
+	song1.open(getExePath() + mapname);
 
 	for (int i = 0; i < beats.size(); i++)
 	{
@@ -97,15 +97,29 @@ bool Toolmanager::loadSound(std::string soundName, std::string path)
 	return false;
 }
 
-bool Toolmanager::loadMap(const char * mapName, std::string path)
+bool Toolmanager::loadMap(std::string mapName, std::string path)
 {
-	//iostream read in the text file
+	//Fstream read in the text file
+	std::string::size_type size; //alias of size_t
+	std::vector<eventpoint> newBeats;
+	std::string line;
+	std::ifstream mySong(path + mapName);
+	if (mySong.is_open())
+	{
+		while (std::getline(mySong,line))
+		{
+			eventpoint beat;
+			int64_t time = std::stoi(line, &size);
+			beat.timeEvent = time;
+		}
+	}
+
 	return false;
 }
 
-bool Toolmanager::saveMap()
+bool Toolmanager::saveMap(std::string mapname)
 {
-	serialiseBeatmap();
+	serialiseBeatmap(mapname);
 	return false;
 }
 

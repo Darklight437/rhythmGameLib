@@ -72,7 +72,10 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::RControl)
 			{
-				RM.saveMap();
+				RM.saveMap("song1.txt");
+				text.setFillColor(sf::Color::White);
+				text.setString("saved");
+
 			}
 
 			if (event.type == sf::Event::Closed)

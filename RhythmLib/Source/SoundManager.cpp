@@ -35,8 +35,8 @@ bool SoundManager::startup()
 		std::cout << "FMOD error! \n" << result << FMOD_ErrorString(result) << "\n";
 	}
 
-	loadSong("audio/Dieseldotogg.wav");
-	loadSound("audio/gunshot.ogg");
+	//loadSong("audio/Dieseldotogg.wav");
+	//loadSound("audio/gunshot.ogg");
 
 	return true;
 }
