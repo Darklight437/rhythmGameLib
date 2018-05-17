@@ -46,7 +46,7 @@ public:
 	float compareinput(eventpoint currNote, eventpoint input);
 
 	//returns the most recent event created by the player
-	eventpoint getLatestBeat();
+	eventpoint getLatestInput();
 
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);
@@ -63,7 +63,7 @@ public:
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	
-
+	float getDecimalToBeat();
 
 
 	//consigned to irrelevant because FMOD hates me
@@ -75,6 +75,7 @@ public:
 
 
 protected:
+	float decimalToBeat;
 	void writeEvent(eventpoint);
 	//accuracy values in milliseconds
 	float m_perfect = 25.0f;
@@ -83,6 +84,7 @@ protected:
 	float m_bad = 121.0f;
 	void serialiseBeatmap(std::string mapname);
 	std::string path = getExePath();
+	//std::vector<eventpoint> elapsedNotes;
 	SoundManager m_SoundM;
 	BeatMap m_currentSong;
 	BeatMap m_recording;

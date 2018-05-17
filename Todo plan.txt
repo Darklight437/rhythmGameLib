@@ -1,2 +1,8 @@
 read beatmaps from file (done)
-incoming note warning system
+incoming note warning system:
+system aditions for this feature
+
+systerm to iterate through beatmap and find certain beats:
+closest (determine if this is upcoming or missed)
+next
+previous

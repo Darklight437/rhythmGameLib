@@ -161,12 +161,12 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 	return 300.0f;
 }
 
-eventpoint Toolmanager::getLatestBeat()
+eventpoint Toolmanager::getLatestInput()
 {
 	m_currentSong.getTimeEvents().front();
 	return eventpoint();
 }
-
+//takes a beat event & a bool to determine wether to record
 int Toolmanager::handleBeat(eventpoint beat, bool recording)
 {
 	//take a beatevent as an argument
@@ -177,8 +177,9 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 	}
 	else
 	{
+		//expose this differance value
 		float difference;
-		difference = compareinput(getLatestBeat(), beat);
+		difference = compareinput(getLatestInput(), beat);
 
 		int beatscore = rateBeat(difference);
 		return beatscore;
@@ -227,6 +228,11 @@ void Toolmanager::setDifficulties(float perfect, float great, float good, float 
 
 
 
+
+float Toolmanager::getDecimalToBeat()
+{
+	return decimalToBeat;
+}
 
 bool Toolmanager::songPlaying()
 {
