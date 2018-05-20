@@ -13,7 +13,7 @@ public:
 
 	
 	
-	void beatSound();
+	void beatSound(int soundnum);
 	void playCurrSong();
 	
 	//call this each frame to clean up fmod & other systems

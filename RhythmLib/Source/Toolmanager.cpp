@@ -19,10 +19,10 @@ Toolmanager::~Toolmanager()
 }
 
 
-
-void Toolmanager::beatSound()
+//plays the specified sound in the list of sfx in load order
+void Toolmanager::beatSound(int soundnum)
 {
-	m_SoundM.Playsound(m_SoundM.m_FXfiles[0]);
+	m_SoundM.Playsound(m_SoundM.m_FXfiles[soundnum]);
 }
 
 void Toolmanager::playCurrSong()
@@ -89,7 +89,7 @@ bool Toolmanager::loadSong(std::string songName, std::string path)
 bool Toolmanager::loadSound(std::string soundName, std::string path)
 {
 	std::string fullName = path + soundName;
-	const char * soundNamechar = soundName.c_str();
+	const char * soundNamechar = fullName.c_str();
 	if (m_SoundM.loadSound(soundNamechar))
 	{
 		return true;

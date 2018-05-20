@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 	sf::Font font;
+	sf::Text text2;
 	sf::Text text;
 	if (!font.loadFromFile(RM.getExePath() + "\\resources\\arial.ttf"))
 	{
@@ -26,15 +27,25 @@ int main(int argc, char* argv[])
 		//error system
 	}
 	text.setFont(font);
-	text.setCharacterSize(30);
+	text2.setFont(font);
+	text2.setFillColor(sf::Color::Red);
 	text.setFillColor(sf::Color::White);
 	text.setPosition(sf::Vector2f(100, 100));
+
+	if (recordingMode)
+	{
+		text2.setString("recording");
+	}
+	else
+	{
+		text2.setString("playing");
+	}
 
 	//Loading music	
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-	RM.loadSong("Dieseldotogg.wav", RM.getExePath());
-	RM.loadSound("gunshot.wav", RM.getExePath());
+	RM.loadSong("\\audio\\Dieseldotogg.wav", RM.getExePath());
+	RM.loadSound("\\audio\\clap.wav", RM.getExePath());
 
 
 
@@ -120,7 +131,7 @@ int main(int argc, char* argv[])
 				}
 
 				shape.setFillColor(sf::Color::Blue);
-				RM.beatSound();
+				RM.beatSound(0);
 
 			}
 
