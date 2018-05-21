@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
 				{
 					RM.playCurrSong();
 					songPlaying = true;
-					//dont know why system isnt working but instead song will just NEVER play more than once as current
+					
 				}
 				
 			}

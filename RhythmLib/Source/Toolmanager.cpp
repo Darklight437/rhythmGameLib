@@ -234,7 +234,7 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 
 		float difference;
 		
-		difference = compareinput(getNextBeat(), beat);
+		difference = compareinput(getNearestBeat(), beat);
 
 		int beatscore = rateBeat(difference);
 		return beatscore;
@@ -279,8 +279,6 @@ void Toolmanager::setDifficulties(float perfect, float great, float good, float 
 	m_good = good;
 	m_bad = bad;
 }
-
-
 
 
 
