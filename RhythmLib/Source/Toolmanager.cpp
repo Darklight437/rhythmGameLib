@@ -165,13 +165,40 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 eventpoint Toolmanager::getNextBeat()
 {
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents(); 
+	if (GameClock::getInstance().getTimeMilliseconds >= song.back().timeEvent)
+	{
+		return song.back();
+	}
 	for (auto iter = song.begin(); iter != song.end(); iter++)
 	{
-		
+		if (iter->timeEvent > GameClock::getInstance().getTimeMilliseconds())
+		{
+			return *iter;
+		}
 	}
 	
 	return eventpoint();
 }
+
+eventpoint Toolmanager::getLastBeat()
+{
+	std::vector<eventpoint> song = m_currentSong.getTimeEvents();
+	if (GameClock::getInstance().getTimeMilliseconds >= song.back().timeEvent)
+	{
+		return song.back();
+	}
+	for (auto iter = song.begin(); iter != song.end(); iter++)
+	{
+		if (iter->timeEvent > GameClock::getInstance().getTimeMilliseconds())
+		{
+			return *iter;
+		}
+	}
+
+	return eventpoint();
+}
+
+
 //takes a beat event & a bool to determine wether to record
 int Toolmanager::handleBeat(eventpoint beat, bool recording)
 {

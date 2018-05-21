@@ -45,8 +45,10 @@ public:
 	//returns the difference between the input and the closest correct beat
 	float compareinput(eventpoint currNote, eventpoint input);
 
-	//returns the most recent event created by the player
+	//returns the next beat in the beatmap before the current time
 	eventpoint getNextBeat();
+	//returns the last beat that happened
+	eventpoint getLastBeat();
 
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);
