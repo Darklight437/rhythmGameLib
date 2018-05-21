@@ -30,8 +30,7 @@ int64_t GameClock::getTimeMicroseconds()
 
 void GameClock::resetClock()
 {
-	
-	
+	m_createTime = m_timer.now();
 }
 
 void GameClock::update()

@@ -110,7 +110,9 @@ bool Toolmanager::loadMap(std::string mapName, std::string path)
 			eventpoint beat;
 			int64_t time = std::stoi(line, &size);
 			beat.timeEvent = time;
+			m_currentSong.addEvent(beat);
 		}
+		return true;
 	}
 
 	return false;
@@ -149,7 +151,7 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 {
 	//working in miliseconds
 	//if it's within 500MS count it
-	int64_t d1 = 200;
+	int64_t d1 = 300;
 	float difference = (float)input.timeEvent - (float) currNote.timeEvent;
 	if (difference <=  d1)
 	{
@@ -157,12 +159,17 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 		return difference;
 	}
 
-	return 300.0f;
+	return d1;
 }
-
-eventpoint Toolmanager::getLatestInput()
+//gets nearest beat to current time that is greater than current time
+eventpoint Toolmanager::getNextBeat()
 {
-	m_currentSong.getTimeEvents().front();
+	std::vector<eventpoint> song = m_currentSong.getTimeEvents(); 
+	for (auto iter = song.begin(); iter != song.end(); iter++)
+	{
+		
+	}
+	
 	return eventpoint();
 }
 //takes a beat event & a bool to determine wether to record
@@ -177,8 +184,9 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 	else
 	{
 		//expose this differance value
+
 		float difference;
-		difference = compareinput(getLatestInput(), beat);
+		difference = compareinput(getNextBeat(), beat);
 
 		int beatscore = rateBeat(difference);
 		return beatscore;

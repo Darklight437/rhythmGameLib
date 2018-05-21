@@ -46,7 +46,7 @@ public:
 	float compareinput(eventpoint currNote, eventpoint input);
 
 	//returns the most recent event created by the player
-	eventpoint getLatestInput();
+	eventpoint getNextBeat();
 
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);

@@ -14,6 +14,7 @@ int main(int argc, char* argv[])
 	shape.setPosition(400, 300);
 	shape.setFillColor(sf::Color::Green);
 	bool recordingMode = false;
+	bool beatmapLoaded = false;
 	int accuracyScore;
 	//text
 /////////////////////////////////////////////////////////////////////////////////////
@@ -30,6 +31,7 @@ int main(int argc, char* argv[])
 	text2.setFont(font);
 	text2.setFillColor(sf::Color::Red);
 	text.setFillColor(sf::Color::White);
+	text2.setPosition(sf::Vector2f(100, 300));
 	text.setPosition(sf::Vector2f(100, 100));
 
 	if (recordingMode)
@@ -62,7 +64,10 @@ int main(int argc, char* argv[])
 		RM.update();
 		//reset text
 		text.setString(" ");
-			
+		if (recordingMode)
+		{
+			beatmapLoaded = true;
+		}
 		
 		
 		
@@ -92,7 +97,13 @@ int main(int argc, char* argv[])
 				}
 				else
 				{
-					RM.loadMap("song1.txt", RM.getExePath());
+
+					GameClock::getInstance().resetClock();
+					if (RM.loadMap("song1.txt", RM.getExePath()))
+					{
+						text.setString("loaded");
+					}
+					beatmapLoaded = true;
 				}
 				
 
@@ -109,7 +120,11 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
-				
+				if (beatmapLoaded != true)
+				{
+					continue;
+				}
+
 				
 				accuracyScore = RM.handleBeat(RM.createEvent(), recordingMode);
 				switch (accuracyScore)
@@ -131,13 +146,14 @@ int main(int argc, char* argv[])
 					text.setString("Great");
 					break;
 				case 4:
-					//its gold 
+					//gold 
 					text.setFillColor(sf::Color::Color(255,215,0));
 					text.setString("Perfect");
 
 				default:
 					break;
 				}
+
 
 				shape.setFillColor(sf::Color::Blue);
 				RM.beatSound(0);
@@ -155,6 +171,7 @@ int main(int argc, char* argv[])
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 			window.clear();
+			window.draw(text2);
 			window.draw(text);
 			window.draw(shape);
 			window.display();		
