@@ -201,18 +201,21 @@ eventpoint Toolmanager::getLastBeat()
 eventpoint Toolmanager::getNearestBeat()
 {
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents();
-
+	eventpoint currentClosest;
+	currentClosest.timeEvent = 0;
+	//hets the closest note
 	for (auto iter = song.begin(); iter != song.end(); iter++)
-	{
-		if (iter->timeEvent - GameClock::getInstance().getTimeMilliseconds() < 300 && iter->timeEvent - GameClock::getInstance().getTimeMilliseconds() > -300)
-		{
-			return *iter;
-		}
+	{		
+			if (iter->timeEvent - GameClock::getInstance().getTimeMilliseconds() < currentClosest.timeEvent - GameClock::getInstance().getTimeMilliseconds())
+			{
+				currentClosest = *iter;
+			}
+		
 	}
 
 
 
-	return eventpoint();
+	return currentClosest;
 }
 
 
