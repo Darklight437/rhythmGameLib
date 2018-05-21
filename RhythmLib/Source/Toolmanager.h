@@ -50,6 +50,8 @@ public:
 	//returns the last beat that happened
 	eventpoint getLastBeat();
 
+	eventpoint getNearestBeat();
+
 	//evaluates player input and sets m_lastScore
 	int handleBeat(eventpoint beat, bool recording);
 
