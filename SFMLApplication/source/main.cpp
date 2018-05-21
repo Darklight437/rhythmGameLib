@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	shape.setOrigin(100, 100);
 	shape.setPosition(400, 300);
 	shape.setFillColor(sf::Color::Green);
-	bool recordingMode = true;
+	bool recordingMode = false;
 	int accuracyScore;
 	//text
 /////////////////////////////////////////////////////////////////////////////////////
@@ -83,9 +83,18 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::RControl)
 			{
-				RM.saveMap("song1.txt");
-				text.setFillColor(sf::Color::White);
-				text.setString("saved");
+				//save a map
+				if (recordingMode)
+				{
+					RM.saveMap("song1.txt");
+					text.setFillColor(sf::Color::White);
+					text.setString("saved");
+				}
+				else
+				{
+					RM.loadMap("song1.txt", RM.getExePath());
+				}
+				
 
 			}
 

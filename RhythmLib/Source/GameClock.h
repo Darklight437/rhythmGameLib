@@ -11,7 +11,7 @@ public:
 	int64_t getTimeSeconds();
 	int64_t getTimeMilliseconds();
 	int64_t getTimeMicroseconds();
-
+	void resetClock();
 
 
 	void update();
@@ -25,7 +25,7 @@ private:
 	GameClock();
 	GameClock(GameClock const&);
 	void operator=(GameClock const&);
-
+	
 
 	//functional elements
 	std::chrono::high_resolution_clock m_timer;
@@ -34,6 +34,8 @@ private:
 	std::chrono::time_point<std::chrono::high_resolution_clock> m_createTime;
 
 	std::chrono::time_point<std::chrono::high_resolution_clock> m_lastTime;
+
+	
 
 	float deltaTime = 0.0f;
 

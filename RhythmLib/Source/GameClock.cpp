@@ -11,6 +11,8 @@ GameClock::GameClock()
 
 
 
+
+
 int64_t GameClock::getTimeSeconds()
 {
 	return std::chrono::duration_cast<std::chrono::seconds>(m_timer.now() - m_createTime).count();
@@ -24,6 +26,12 @@ int64_t GameClock::getTimeMilliseconds()
 int64_t GameClock::getTimeMicroseconds()
 {
 	return std::chrono::duration_cast<std::chrono::microseconds>(m_timer.now() - m_createTime).count();
+}
+
+void GameClock::resetClock()
+{
+	
+	
 }
 
 void GameClock::update()

@@ -38,11 +38,10 @@ void Toolmanager::serialiseBeatmap(std::string mapname)
 	
 	std::vector<eventpoint> beats = m_recording.getTimeEvents();
 	std::vector<eventpoint>::iterator it = beats.begin();
-	song1.open(getExePath() + mapname);
+	song1.open(getExePath() + "\\beatmaps\\" + mapname);
 
 	for (int i = 0; i < beats.size(); i++)
 	{
-
 		song1 << it->timeEvent << "\n";
 		it++;
 	}
@@ -103,7 +102,7 @@ bool Toolmanager::loadMap(std::string mapName, std::string path)
 	std::string::size_type size; //alias of size_t
 	std::vector<eventpoint> newBeats;
 	std::string line;
-	std::ifstream mySong(path + mapName);
+	std::ifstream mySong(path + "\\beatmaps\\" + mapName);
 	if (mySong.is_open())
 	{
 		while (std::getline(mySong,line))
