@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 {
 	Toolmanager RM;
 	bool songPlaying = false;
-	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(800, 600), "NOsu!");
 	bool recordingMode = false;
 	bool beatmapLoaded = false;
 	int accuracyScore;
@@ -77,43 +77,57 @@ int main(int argc, char* argv[])
 	{
 		sf::Event event;
 		
-		RM.debugClock();
+		//RM.debugClock();
 		RM.update();
-		//reset text
-		text.setString(" ");
-		if (recordingMode)
-		{
-			beatmapLoaded = true;
-		}
-		//
+		
+			
+		
+		//moving beat ring 
 		if (beatmapLoaded)
 		{
 
 			eventpoint nextBeat = RM.getNextBeat();
-			float timeToBeat = (float) (float)nextBeat.timeEvent - GameClock::getInstance().getTimeMilliseconds();
+			float timeToBeat =  (float)nextBeat.timeEvent - (float)GameClock::getInstance().getTimeMilliseconds();
 			
 
-			
-			ring.setRadius(timeToBeat);
+			ring.setRadius(100 + timeToBeat);
 			ring.setOrigin(ring.getRadius(), ring.getRadius());
-
+			
 		}
 		
+
+		if (recordingMode)
+		{
+			text2.setString("recording");
+		}
+		else
+		{
+			text2.setString("playing");
+		}
+
+		//events
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 		
 
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LControl)
 			{
-
-				if (songPlaying == false)
+				if (songPlaying != true && recordingMode == false)
 				{
-					RM.playCurrSong();
-					songPlaying = true;
+					recordingMode = true;
+					GameClock::getInstance().resetClock();
 					
+				}
+				else if (songPlaying != true && recordingMode == true)
+				{
+					recordingMode = false;
+					GameClock::getInstance().resetClock();
 				}
 				
 			}
+
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::RControl)
 			{
@@ -123,7 +137,10 @@ int main(int argc, char* argv[])
 					RM.saveMap("song1.txt");
 					text.setFillColor(sf::Color::White);
 					text.setString("saved");
+
+
 				}
+				//load the song & start playing music
 				else
 				{
 
@@ -133,9 +150,26 @@ int main(int argc, char* argv[])
 						text.setString("loaded");
 					}
 					beatmapLoaded = true;
-				}
-				
 
+					if (songPlaying == false)
+					{
+						RM.playCurrSong();
+						songPlaying = true;
+
+					}
+
+				}
+
+			}
+
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return)
+			{
+				if (songPlaying == false && recordingMode == true)
+				{
+					RM.playCurrSong();
+					songPlaying = true;
+					GameClock::getInstance().resetClock();
+				}
 			}
 
 			if (event.type == sf::Event::Closed)
@@ -149,10 +183,7 @@ int main(int argc, char* argv[])
 
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
 			{
-				if (beatmapLoaded != true)
-				{
-					continue;
-				}
+
 
 				
 				accuracyScore = RM.handleBeat(RM.createEvent(), recordingMode);
@@ -199,14 +230,16 @@ int main(int argc, char* argv[])
 			//drawing section
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-			window.clear();
-			window.draw(text2);
-			window.draw(text);
-			window.draw(shape);
-			window.draw(ring);
-			window.display();		
+	
 			
 		}	
+
+		window.clear();
+		window.draw(text2);
+		window.draw(text);
+		window.draw(shape);
+		window.draw(ring);
+		window.display();
 		
 	}
 	return 0;

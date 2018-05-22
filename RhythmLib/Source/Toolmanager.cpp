@@ -152,7 +152,7 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 	//working in miliseconds
 	//if it's within 500MS count it
 	int64_t d1 = 300;
-	float difference = (float)input.timeEvent - (float) currNote.timeEvent;
+	float difference = std::abs((float)input.timeEvent - (float)currNote.timeEvent);
 	if (difference <=  d1)
 	{
 		
@@ -167,12 +167,16 @@ eventpoint Toolmanager::getNextBeat()
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents(); 
 	if (GameClock::getInstance().getTimeMilliseconds() >= song.back().timeEvent)
 	{
+		
 		return song.back();
 	}
+
 	for (auto iter = song.begin(); iter != song.end(); iter++)
 	{
+		
 		if (iter->timeEvent > GameClock::getInstance().getTimeMilliseconds())
 		{
+			
 			return *iter;
 		}
 	}
@@ -183,14 +187,20 @@ eventpoint Toolmanager::getNextBeat()
 eventpoint Toolmanager::getLastBeat()
 {
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents();
-	if (GameClock::getInstance().getTimeMilliseconds() >= song.back().timeEvent)
+	
+	if (GameClock::getInstance().getTimeMilliseconds() < song.front().timeEvent)
 	{
-		return song.back();
+		std::cout << "lastbeat hit front \n";
+		
+		return eventpoint{ 0,0 };
 	}
-	for (auto iter = song.end(); iter != song.begin(); iter++)
+
+	for (auto iter = song.rbegin(); iter != song.rend(); iter++)
 	{
-		if (iter->timeEvent > GameClock::getInstance().getTimeMilliseconds())
+		//std::cout << "looking at timepoint with time" << iter->timeEvent << std::endl;
+		if (iter->timeEvent < GameClock::getInstance().getTimeMilliseconds())
 		{
+			std::cout << "found last timepoint with time" << iter->timeEvent << std::endl;
 			return *iter;
 		}
 	}
@@ -200,22 +210,23 @@ eventpoint Toolmanager::getLastBeat()
 //gets closest beat to time regardless of wether it is before or after
 eventpoint Toolmanager::getNearestBeat()
 {
-	std::vector<eventpoint> song = m_currentSong.getTimeEvents();
-	eventpoint currentClosest;
-	currentClosest.timeEvent = 0;
-	//hets the closest note
-	for (auto iter = song.begin(); iter != song.end(); iter++)
-	{		
-			if (iter->timeEvent - GameClock::getInstance().getTimeMilliseconds() < currentClosest.timeEvent - GameClock::getInstance().getTimeMilliseconds())
-			{
-				currentClosest = *iter;
-			}
-		
+	eventpoint last = getLastBeat();
+	eventpoint next = getNextBeat();
+	float differenceBack = (GameClock::getInstance().getTimeMilliseconds() - last.timeEvent);
+	float differenceForward = std::abs(GameClock::getInstance().getTimeMilliseconds() - next.timeEvent);
+
+	if (differenceBack < differenceForward)
+	{
+		return last;
+	}
+	else
+	{
+		return next;
 	}
 
 
 
-	return currentClosest;
+	
 }
 
 
@@ -246,7 +257,7 @@ int Toolmanager::handleBeat(eventpoint beat, bool recording)
 
 int Toolmanager::rateBeat(float differenceOfNote)
 {
-	if (differenceOfNote = 300.0f)
+	if (differenceOfNote == 300.0f)
 	{
 		return 0;
 	}
