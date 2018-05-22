@@ -2,3 +2,5 @@ Lcontrol switches the mode of the game/tool at the beginning before the music st
 Rcontrol saves a beatmap in recording mode & loads and starts a beatmap in playing mode
 Space is the main input button for creating beats in recording and playing them
 enter starts the music for recording mode to play against
+
+Escape closes the program

@@ -212,8 +212,8 @@ eventpoint Toolmanager::getNearestBeat()
 {
 	eventpoint last = getLastBeat();
 	eventpoint next = getNextBeat();
-	float differenceBack = (GameClock::getInstance().getTimeMilliseconds() - last.timeEvent);
-	float differenceForward = std::abs(GameClock::getInstance().getTimeMilliseconds() - next.timeEvent);
+	float differenceBack = (float) (GameClock::getInstance().getTimeMilliseconds() - last.timeEvent);
+	float differenceForward = (float) std::abs(GameClock::getInstance().getTimeMilliseconds() - next.timeEvent);
 
 	if (differenceBack < differenceForward)
 	{

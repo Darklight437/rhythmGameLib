@@ -94,6 +94,7 @@ int main(int argc, char* argv[])
 			ring.setOrigin(ring.getRadius(), ring.getRadius());
 			
 		}
+
 		
 
 		if (recordingMode)
@@ -185,36 +186,41 @@ int main(int argc, char* argv[])
 			{
 
 
-				
-				accuracyScore = RM.handleBeat(RM.createEvent(), recordingMode);
-				switch (accuracyScore)
+				if (beatmapLoaded || recordingMode == true)
 				{
-				case 0:
-					text.setFillColor(sf::Color::Red);
-					text.setString("Miss");
-					break;
-				case 1:
-					text.setFillColor(sf::Color::Red);
-					text.setString("Bad");
-					break;
-				case 2:
-					text.setFillColor(sf::Color::White);
-					text.setString("Good");
-					break;
-				case 3:
-					text.setFillColor(sf::Color::Green);
-					text.setString("Great");
-					break;
-				case 4:
-					//gold 
-					text.setFillColor(sf::Color::Color(255,215,0));
-					text.setString("Perfect");
+					accuracyScore = RM.handleBeat(RM.createEvent(), recordingMode);
+				
+				
+				
 
-				default:
-					break;
+					switch (accuracyScore)
+					{
+					case 0:
+						text.setFillColor(sf::Color::Red);
+						text.setString("Miss");
+						break;
+					case 1:
+						text.setFillColor(sf::Color::Red);
+						text.setString("Bad");
+						break;
+					case 2:
+						text.setFillColor(sf::Color::White);
+						text.setString("Good");
+						break;
+					case 3:
+						text.setFillColor(sf::Color::Green);
+						text.setString("Great");
+						break;
+					case 4:
+						//gold 
+						text.setFillColor(sf::Color::Color(255,215,0));
+						text.setString("Perfect");
+
+					default:
+						break;
+					}
+
 				}
-
-
 				shape.setFillColor(sf::Color::Blue);
 				RM.beatSound(0);
 
