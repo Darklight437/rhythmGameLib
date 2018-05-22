@@ -9,24 +9,41 @@ int main(int argc, char* argv[])
 	Toolmanager RM;
 	bool songPlaying = false;
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+	bool recordingMode = false;
+	bool beatmapLoaded = false;
+	int accuracyScore;
+
+	//shape
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+
+	
 	sf::CircleShape shape(100.0f);
 	shape.setOrigin(100, 100);
 	shape.setPosition(400, 300);
 	shape.setFillColor(sf::Color::Green);
-	bool recordingMode = false;
-	bool beatmapLoaded = false;
-	int accuracyScore;
+	sf::CircleShape ring(100.0f);
+	ring.setFillColor(sf::Color::Transparent);
+	ring.setRadius(100);
+	ring.setOrigin(ring.getRadius(), ring.getRadius());
+	ring.setPosition(400, 300);
+	ring.setOutlineColor(sf::Color::White);
+	ring.setOutlineThickness(5);
+
+	
 	//text
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 	sf::Font font;
 	sf::Text text2;
 	sf::Text text;
+
 	if (!font.loadFromFile(RM.getExePath() + "\\resources\\arial.ttf"))
 	{
 		std::cout << "NO LOAD" << "\n" ;
 		//error system
 	}
+
 	text.setFont(font);
 	text2.setFont(font);
 	text2.setFillColor(sf::Color::Red);
@@ -50,7 +67,7 @@ int main(int argc, char* argv[])
 	RM.loadSound("\\audio\\clap.wav", RM.getExePath());
 
 
-
+	//events
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -68,7 +85,19 @@ int main(int argc, char* argv[])
 		{
 			beatmapLoaded = true;
 		}
-		
+		//
+		if (beatmapLoaded)
+		{
+
+			eventpoint nextBeat = RM.getNextBeat();
+			float timeToBeat = (float) (float)nextBeat.timeEvent - GameClock::getInstance().getTimeMilliseconds();
+			
+
+			
+			ring.setRadius(timeToBeat);
+			ring.setOrigin(ring.getRadius(), ring.getRadius());
+
+		}
 		
 		
 
@@ -174,6 +203,7 @@ int main(int argc, char* argv[])
 			window.draw(text2);
 			window.draw(text);
 			window.draw(shape);
+			window.draw(ring);
 			window.display();		
 			
 		}	

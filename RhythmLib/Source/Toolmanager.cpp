@@ -159,13 +159,13 @@ float Toolmanager::compareinput(eventpoint currNote, eventpoint input)
 		return difference;
 	}
 
-	return d1;
+	return (float) d1;
 }
 //gets nearest beat to current time that is greater than current time
 eventpoint Toolmanager::getNextBeat()
 {
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents(); 
-	if (GameClock::getInstance().getTimeMilliseconds >= song.back().timeEvent)
+	if (GameClock::getInstance().getTimeMilliseconds() >= song.back().timeEvent)
 	{
 		return song.back();
 	}
@@ -183,7 +183,7 @@ eventpoint Toolmanager::getNextBeat()
 eventpoint Toolmanager::getLastBeat()
 {
 	std::vector<eventpoint> song = m_currentSong.getTimeEvents();
-	if (GameClock::getInstance().getTimeMilliseconds >= song.back().timeEvent)
+	if (GameClock::getInstance().getTimeMilliseconds() >= song.back().timeEvent)
 	{
 		return song.back();
 	}
